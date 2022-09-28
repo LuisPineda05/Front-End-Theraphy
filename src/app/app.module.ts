@@ -38,6 +38,7 @@ import { TreatmentsInfoComponent } from './user-type/patient/pages/treatments-in
 import {
   ProfessionalProfileComponent
 } from "./user-type/patient/pages/professional-profile/professional-profile.component";
+import {HeaderComponent} from "./components/header/header.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {
     PaymentsComponent,
     MedicalAppointmentsComponent,
     TreatmentsInfoComponent,
-    ProfessionalProfileComponent
+    ProfessionalProfileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
