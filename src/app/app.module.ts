@@ -27,11 +27,13 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhysiotherapistsComponent,
+    TreatmentsComponent,
   ],
   imports: [
     BrowserModule,
