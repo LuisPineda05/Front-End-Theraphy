@@ -34,6 +34,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedule-appointments/schedule-appointments.component';
 import { PaymentsComponent } from './user-type/patient/pages/payments/payments.component';
 import { MedicalAppointmentsComponent } from './user-type/patient/pages/medical-appointments/medical-appointments.component';
+import { TreatmentsInfoComponent } from './user-type/patient/pages/treatments-info/treatments-info.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MedicalAppointmentsComponent } from './user-type/patient/pages/medical-
     SidenavComponent,
     ScheduleAppointmentsComponent,
     PaymentsComponent,
-    MedicalAppointmentsComponent
+    MedicalAppointmentsComponent,
+    TreatmentsInfoComponent
   ],
   imports: [
     BrowserModule,
