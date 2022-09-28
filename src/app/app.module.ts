@@ -32,6 +32,7 @@ import {TreatmentsService} from "./user-type/patient/services/treatments.service
 import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions/video-sessions.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedule-appointments/schedule-appointments.component';
+import { PaymentsComponent } from './user-type/patient/pages/payments/payments.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedul
     TreatmentsComponent,
     VideoSessionsComponent,
     SidenavComponent,
-    ScheduleAppointmentsComponent
+    ScheduleAppointmentsComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,
