@@ -1,0 +1,29 @@
+<h1>Medical appointments</h1>
+<p>Check your medical appointments</p>
+<form class="example-form">
+
+  <button mat-raised-button color="primary" class="search-btn"><span>Filter</span></button>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <input type="search" matInput placeholder="Doctor's name">
+  </mat-form-field>
+
+</form>
+
+<div class="cards" *ngFor="let physiotherapist of physiotherapists">
+  <mat-card class="example-card">
+    <div class="image">
+      <img mat-card-md-image src="{{ physiotherapist.photo}}">
+    </div>
+    <div class="information">
+
+      <div class="name">
+        <mat-card-title><span>{{ physiotherapist.first_name + ' ' + physiotherapist.paternal_surname }}</span></mat-card-title>
+      </div>
+      <div class="card-information-data">
+        <mat-card-subtitle><span>Physiotherapy</span></mat-card-subtitle>
+        <h4 class="nextButton" >Diagnosis ></h4>
+      </div>
+
+    </div>
+  </mat-card>
+</div>

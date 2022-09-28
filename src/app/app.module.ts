@@ -33,6 +33,7 @@ import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedule-appointments/schedule-appointments.component';
 import { PaymentsComponent } from './user-type/patient/pages/payments/payments.component';
+import { MedicalAppointmentsComponent } from './user-type/patient/pages/medical-appointments/medical-appointments.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { PaymentsComponent } from './user-type/patient/pages/payments/payments.c
     VideoSessionsComponent,
     SidenavComponent,
     ScheduleAppointmentsComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    MedicalAppointmentsComponent
   ],
   imports: [
     BrowserModule,
