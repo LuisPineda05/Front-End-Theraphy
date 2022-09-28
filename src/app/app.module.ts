@@ -30,6 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatments.component';
 import {TreatmentsService} from "./user-type/patient/services/treatments.service";
 import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions/video-sessions.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions
     PhysiotherapistsComponent,
     TreatmentsComponent,
     VideoSessionsComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
