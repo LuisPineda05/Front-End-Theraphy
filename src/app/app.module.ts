@@ -35,6 +35,9 @@ import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedul
 import { PaymentsComponent } from './user-type/patient/pages/payments/payments.component';
 import { MedicalAppointmentsComponent } from './user-type/patient/pages/medical-appointments/medical-appointments.component';
 import { TreatmentsInfoComponent } from './user-type/patient/pages/treatments-info/treatments-info.component';
+import {
+  ProfessionalProfileComponent
+} from "./user-type/patient/pages/professional-profile/professional-profile.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { TreatmentsInfoComponent } from './user-type/patient/pages/treatments-in
     ScheduleAppointmentsComponent,
     PaymentsComponent,
     MedicalAppointmentsComponent,
-    TreatmentsInfoComponent
+    TreatmentsInfoComponent,
+    ProfessionalProfileComponent
   ],
   imports: [
     BrowserModule,
