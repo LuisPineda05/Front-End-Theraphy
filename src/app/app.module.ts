@@ -31,6 +31,7 @@ import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatm
 import {TreatmentsService} from "./user-type/patient/services/treatments.service";
 import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions/video-sessions.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ScheduleAppointmentsComponent } from './user-type/patient/pages/schedule-appointments/schedule-appointments.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     PhysiotherapistsComponent,
     TreatmentsComponent,
     VideoSessionsComponent,
-    SidenavComponent
+    SidenavComponent,
+    ScheduleAppointmentsComponent
   ],
   imports: [
     BrowserModule,
