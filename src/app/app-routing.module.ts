@@ -11,12 +11,12 @@ import {VideoSessionsComponent} from "./user-type/patient/pages/video-sessions/v
 
 const routes: Routes = [
   {path:'physiotherapists', component: PhysiotherapistsComponent},
+  {path:'treatments', component: TreatmentsComponent},
   {path:'treatments/:id', component: TreatmentsComponent},
   {path:'payments', component: PaymentsComponent},
   {path:'schedule-appointments', component: ScheduleAppointmentsComponent},
   {path: 'medical-appointments', component: MedicalAppointmentsComponent},
-  {path: 'video-sessions/:id', component: VideoSessionsComponent},
-
+  {path: 'video-sessions/:id', component: VideoSessionsComponent}
 ];
 
 @NgModule({
