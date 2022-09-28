@@ -28,12 +28,15 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatments.component';
+import {TreatmentsService} from "./user-type/patient/services/treatments.service";
+import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions/video-sessions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhysiotherapistsComponent,
     TreatmentsComponent,
+    VideoSessionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatm
     MatNativeDateModule,
     MatSelectModule
   ],
-  providers: [PhysiotherapistsService],
+  providers: [TreatmentsService,PhysiotherapistsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
