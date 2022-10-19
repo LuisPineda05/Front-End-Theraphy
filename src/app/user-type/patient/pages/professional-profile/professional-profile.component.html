@@ -6,7 +6,7 @@
       <h1>Professional's profile</h1>
     </div>
     <div class="profile-header_right">
-      <button mat-raised-button class="div-button" [routerLink]="['/schedule-appointments']" color="primary">Schedule an Appointment</button>
+      <button mat-raised-button class="div-button" [routerLink]="['/schedule-appointments',physiotherapist.id]" color="primary">Schedule an Appointment</button>
     </div>
   </div>
 
@@ -98,7 +98,7 @@
   </div>
 
   <div class="btn">
-    <button mat-raised-button class="div-button-reviews" color="primary">Reviews</button>
+    <button mat-raised-button class="div-button-reviews" color="primary" [routerLink]="['/reviews', physiotherapist.id]" >Reviews</button>
   </div>
 
 </div>

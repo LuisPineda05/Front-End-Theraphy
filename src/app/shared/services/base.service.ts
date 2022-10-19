@@ -3,7 +3,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 
 export class BaseService<T> {
   // Resource Endpoint
-  basePath = 'https://my-json-server.typicode.com/DiegoDa04/FakeAPI-server';
+  basePath = 'http://localhost:3000';
 
   // Common options
   httpOptions = {
@@ -64,5 +64,18 @@ export class BaseService<T> {
     return this.http.put<T>(`${this.basePath}/${id}`,
       JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getItemByField(field: any, value: any): Observable<T>{
+    return this.http.get<T>(
+      `${this.basePath}?${field}=${value}`,
+      this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
+  getAll1(): Observable<any> {
+    return this.http.get(this.basePath,this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 }
