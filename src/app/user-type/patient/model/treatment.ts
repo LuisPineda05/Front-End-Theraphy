@@ -2,8 +2,8 @@ export interface Treatment {
   id:number;
   title: string;
   description: string;
-  sessionsQuantity: number;
-  physiotherapistId: number;
+  sessions_quantity: number;
+  physiotherapist_id: number;
   photo: string;
-  videoSessions: string[]
+  video_sessions: string[]
 }
