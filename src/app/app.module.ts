@@ -27,6 +27,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { TreatmentsComponent } from './user-type/patient/pages/treatments/treatments.component';
 import {TreatmentsService} from "./user-type/patient/services/treatments.service";
 import { VideoSessionsComponent } from './user-type/patient/pages/video-sessions/video-sessions.component';
@@ -39,6 +40,16 @@ import {
   ProfessionalProfileComponent
 } from "./user-type/patient/pages/professional-profile/professional-profile.component";
 import {HeaderComponent} from "./components/header/header.component";
+import { ReviewsComponent } from './user-type/patient/pages/reviews/reviews.component';
+import { NewReviewComponent } from './user-type/patient/pages/reviews/new-review/new-review.component';
+import { TreatmentsByPatientComponent } from './user-type/patient/pages/treatments-by-patient/treatments-by-patient.component';
+import { ProfileComponent } from './user-type/patient/pages/profile/profile.component';
+import { MedicalHistoryComponent } from './user-type/patient/pages/profile/medical-history/medical-history.component';
+import { HomeDoctorComponent } from './user-type/doctor/pages/home-doctor/home-doctor.component';
+import { LoginComponent } from './shared/pages/login/login.component';
+import { SignupComponent } from './shared/pages/signup/signup.component';
+import { HomePatientComponent } from './user-type/patient/pages/home-patient/home-patient.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +63,16 @@ import {HeaderComponent} from "./components/header/header.component";
     MedicalAppointmentsComponent,
     TreatmentsInfoComponent,
     ProfessionalProfileComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReviewsComponent,
+    NewReviewComponent,
+    TreatmentsByPatientComponent,
+    ProfileComponent,
+    MedicalHistoryComponent,
+    HomeDoctorComponent,
+    LoginComponent,
+    SignupComponent,
+    HomePatientComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +99,8 @@ import {HeaderComponent} from "./components/header/header.component";
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [TreatmentsService,PhysiotherapistsService],
   bootstrap: [AppComponent]
