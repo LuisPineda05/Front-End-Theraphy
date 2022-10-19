@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'treatments', component: TreatmentsComponent},
   {path:'treatments-info/:id', component: TreatmentsInfoComponent},
   {path:'payments', component: PaymentsComponent},
-  {path:'schedule-appointments', component: ScheduleAppointmentsComponent},
+  {path:'schedule-appointments/:id', component: ScheduleAppointmentsComponent},
   {path: 'medical-appointments', component: MedicalAppointmentsComponent},
   {path: 'video-sessions/:id', component: VideoSessionsComponent},
   {path: 'professional-profile/:id', component: ProfessionalProfileComponent},
@@ -38,6 +38,7 @@ const routes: Routes = [
   {path: 'new-review/:id', component: NewReviewComponent},
   {path: 'my-treatments', component: TreatmentsByPatientComponent},
   {path: 'medical-history', component: MedicalHistoryComponent},
+
 
   {path: 'home-patient', component: HomePatientComponent},
   {path: 'home-doctor', component: HomeDoctorComponent},
