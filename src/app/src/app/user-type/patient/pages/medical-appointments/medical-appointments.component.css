@@ -1,0 +1,39 @@
+.example-form {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+
+.cards {
+  margin-bottom: 24px;
+  max-width: 400px;
+}
+
+
+.search-btn {
+  margin-bottom: 12px;
+}
+
+.example-card{
+  display: flex;
+  gap: 30px;
+}
+
+.card-information-data{
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+.example-full-width{
+  width: 30%;
+}
+
+h1,p, span {
+  font-family: 'IBM Plex Sans', "Helvetica Neue", sans-serif;
+}
+h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+
