@@ -1,0 +1,104 @@
+<main id="signupContainer">
+
+  <mat-card id="signupForm">
+
+    <mat-card-header id="signupHeader">
+      <mat-card-title>Sign-Up</mat-card-title>
+    </mat-card-header>
+
+
+    <form [formGroup]="registerForm" (submit)="addUser()">
+      <mat-card-content>
+        <mat-grid-list cols="1" rowHeight="0.8:0.1">
+
+          <mat-grid-tile id="nameContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Name</mat-label>
+              <input type="text" matInput formControlName="first_name" required [(ngModel)]="userData.first_name">
+              <mat-error *ngIf="first_name?.errors?.['required']">Name is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="paternalSurnameContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Paternal Surname</mat-label>
+              <input type="text" matInput formControlName="paternal_surname" required [(ngModel)]="userData.paternal_surname">
+              <mat-error *ngIf="paternal_surname?.errors?.['required']">Paternal surname is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="maternalSurnameContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Maternal Surname</mat-label>
+              <input type="text" matInput formControlName="maternal_surname" required [(ngModel)]="userData.maternal_surname">
+              <mat-error *ngIf="maternal_surname?.errors?.['required']">Maternal surname is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+
+          <mat-grid-tile id="birthdayContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Birthday</mat-label>
+              <input type="text" matInput formControlName="birthday" required [(ngModel)]="userData.birthday">
+              <mat-error *ngIf="birthday?.errors?.['required']">Birthday is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="rolContainer">
+
+            <mat-form-field appearance="fill" class="full-width" >
+              <mat-label>Rol</mat-label>
+              <mat-select type="text" formControlName="rol" required [(ngModel)]="userData.type">
+                <mat-option *ngFor="let type of types" [value]="type">
+                  {{type}}
+                </mat-option>
+                <mat-error *ngIf="type?.errors?.['required']">Rol is <strong>required</strong></mat-error>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+
+          <mat-grid-tile id="emailContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>E-mail</mat-label>
+              <input type="text" matInput formControlName="email" required [(ngModel)]="userData.email">
+              <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="passwordContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password" required [(ngModel)]="userData.password">
+              <mat-error *ngIf="password?.errors?.['required']">Password is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
+      </mat-card-content>
+
+      <mat-card-actions id="loginButtonContainer">
+        <button  [disabled]="registerForm.valid" mat-flat-button color="primary" type="submit">Create Account</button>
+      </mat-card-actions>
+
+
+    </form>
+
+
+  </mat-card>
+
+</main>

@@ -1,0 +1,27 @@
+#loginContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 7% 0;
+}
+
+#loginForm {
+  border: 2px solid blue;
+  width: 45%;
+  border-radius: 10px;
+}
+
+#loginHeader {
+  display: flex;
+  justify-content: center;
+  color: blue;
+}
+
+#loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.full-width {
+  height: 70px;
+}

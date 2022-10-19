@@ -1,0 +1,27 @@
+#signupContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 7% 0;
+}
+
+#signupForm {
+  border: 2px solid blue;
+  width: 45%;
+  border-radius: 10px;
+}
+
+#signupHeader {
+  display: flex;
+  justify-content: center;
+  color: blue;
+}
+
+#loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.full-width {
+  height: 70px;
+}

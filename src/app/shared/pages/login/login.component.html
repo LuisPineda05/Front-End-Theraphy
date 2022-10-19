@@ -1,0 +1,57 @@
+<main id="loginContainer">
+
+  <mat-card id="loginForm">
+
+    <mat-card-header id="loginHeader">
+      <mat-card-title>Log-in</mat-card-title>
+    </mat-card-header>
+
+
+    <form [formGroup]="loginForm" (submit)="submitForm()">
+      <mat-card-content>
+        <mat-grid-list cols="1" rowHeight="0.8:0.1">
+
+          <mat-grid-tile id="emailContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>E-mail</mat-label>
+              <input type="text" matInput formControlName="email">
+              <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="passwordContainer">
+
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password">
+              <mat-error *ngIf="password?.errors?.['required']">Password is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+          </mat-grid-tile>
+
+          <mat-grid-tile id="forgotPasswordSection">
+            <a routerLink="/change" href="#" id="forgotPassword"><strong>I forgot my password</strong></a>
+          </mat-grid-tile>
+
+          <mat-grid-tile id="signUpSection">
+            <p id="signUp">You do not have an account?
+              <a routerLink="/signup" href="#"><strong>Sign-Up</strong></a></p>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
+      </mat-card-content>
+
+      <mat-card-actions id="loginButtonContainer">
+        <button [disabled]="!loginForm.valid" mat-flat-button color="primary" type="submit">Get into</button>
+      </mat-card-actions>
+
+
+    </form>
+
+
+  </mat-card>
+
+</main>
