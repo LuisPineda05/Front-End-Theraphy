@@ -23,4 +23,14 @@ export class PhysiotherapistsComponent implements OnInit {
     })
   }
 
+  getPhysiotherapistByQuery(name: string){
+    if(name?.length) {
+      this.physiotherapistsService.getItemByField('first_name',name).subscribe((response: any)=> {
+          this.physiotherapists = response;
+        }
+      )}else{
+      this.getAllPhysiotherapists();
+    }
+  }
+
 }

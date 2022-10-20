@@ -30,4 +30,14 @@ export class TreatmentsComponent implements OnInit {
     })
   }
 
+  getTreatmentByQuery(title: string){
+    if(title?.length) {
+      this.treatmentsService.getItemByField('title',title).subscribe((response: any)=> {
+          this.treatments = response;
+        }
+      )}else{
+      this.getAllTreatments();
+    }
+  }
+
 }

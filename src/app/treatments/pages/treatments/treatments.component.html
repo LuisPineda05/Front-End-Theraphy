@@ -3,10 +3,10 @@
 <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Treatment</mat-label>
-    <input type="search" matInput placeholder="Lumbar Spine">
+    <input type="search" #inputSearch matInput  placeholder="Lumbar Spine" (keyup.enter)="getTreatmentByQuery(inputSearch.value)">
     <mat-icon color="primary" matSuffix>search</mat-icon>
   </mat-form-field>
-  <button mat-raised-button color="primary" class="search-btn"><span>Search</span></button>
+  <button mat-raised-button type="submit" color="primary" class="search-btn" (click)="getTreatmentByQuery(inputSearch.value)"><span>Search</span></button>
 </form>
 
 <mat-divider></mat-divider>

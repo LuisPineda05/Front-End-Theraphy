@@ -3,7 +3,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 
 export class BaseService<T> {
   // Resource Endpoint
-  basePath = 'http://localhost:3000';
+  basePath = 'https://theraphy-fake-api.herokuapp.com';
 
   // Common options
   httpOptions = {
