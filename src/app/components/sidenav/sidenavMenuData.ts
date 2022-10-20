@@ -5,7 +5,7 @@ export const sidenavMenuData = [
     label: 'Home'
   },
   {
-    routeLink: 'profile',
+    routeLink: 'profile-patient',
     icon: 'account_circle',
     label: 'Profile'
   },
@@ -28,10 +28,5 @@ export const sidenavMenuData = [
     routeLink: 'my-treatments',
     icon: 'accessibility',
     label: 'My Treatments'
-  },
-  {
-    routeLink: 'my-physiotherapists',
-    icon: 'group',
-    label: 'My Physiotherapists'
   }
 ]
