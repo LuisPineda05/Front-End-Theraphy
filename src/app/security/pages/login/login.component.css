@@ -1,3 +1,9 @@
+#sidenav {
+  width: 0px;
+  display:none;
+  visibility:hidden;
+}
+
 #loginContainer {
   display: flex;
   justify-content: space-evenly;

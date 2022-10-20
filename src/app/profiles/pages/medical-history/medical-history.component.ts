@@ -11,9 +11,12 @@ import {MedicalHistory} from "../../model/medical-history";
 export class MedicalHistoryComponent implements OnInit {
 
   medicalHistories: MedicalHistory[]=[];
-  currentUser: number =1;
+  currentUser: number;
 
-  constructor(private medicalHistoriesService: MedicalHistoriesService) { }
+  constructor(private medicalHistoriesService: MedicalHistoriesService) {
+    this.currentUser = Number(sessionStorage.getItem("userId"));
+
+  }
 
   ngOnInit(): void {
     this.getAllMedicalHistories()

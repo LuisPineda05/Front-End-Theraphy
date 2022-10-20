@@ -10,9 +10,12 @@ import {TreatmentsByPatientService} from "../../services/treatments-by-patient.s
 export class TreatmentsByPatientComponent implements OnInit {
 
  treatmentsByPatient: TreatmentsByPatient[]=[];
- currentUser: number = 1;
+ currentUser: number;
 
-  constructor(private treatmentsByPatientService: TreatmentsByPatientService) { }
+  constructor(private treatmentsByPatientService: TreatmentsByPatientService) {
+    this.currentUser = Number(sessionStorage.getItem("userId"));
+
+  }
 
   ngOnInit(): void {
   this.getAllTreatmentsByPatient()

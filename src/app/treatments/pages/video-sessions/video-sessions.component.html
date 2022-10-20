@@ -1,12 +1,22 @@
-<div class="list" *ngIf="treatment$ | async as treatment">
-  <h1>Session {{s_number}}</h1>
-  <p>Enjoy your sessions</p>
-  <div class="move">
-
-    <h2 class="backButton" *ngIf="s_value; else elseTemplate" (click)="prevSession()"><-- Session {{s_number-1}}</h2>
-    <ng-template #elseTemplate>
-      <h2 class="backButton" (click)="prevSession()"></h2></ng-template>
-    <h2 class="nextButton" (click)="nextSession()">Session {{s_number+1}}  --></h2>
+<div class="page">
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
   </div>
-  <iframe width="1080" height="720" src="https://www.youtube.com/embed/tH4eV3DJUio" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="contents">
+    <app-header></app-header>
+    <div><div class="list" *ngIf="treatment$ | async as treatment">
+      <h1>Session {{s_number}}</h1>
+      <p>Enjoy your sessions</p>
+      <div class="move">
+
+        <h2 class="backButton" *ngIf="s_value; else elseTemplate" (click)="prevSession()"><-- Session {{s_number-1}}</h2>
+        <ng-template #elseTemplate>
+          <h2 class="backButton" (click)="prevSession()"></h2></ng-template>
+        <h2 class="nextButton" (click)="nextSession()">Session {{s_number+1}}  --></h2>
+      </div>
+      <iframe width="1080" height="720" src="https://www.youtube.com/embed/tH4eV3DJUio" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div></div>
+  </div>
 </div>
+
+

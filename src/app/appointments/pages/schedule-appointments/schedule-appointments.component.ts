@@ -18,7 +18,7 @@ export class ScheduleAppointmentsComponent implements OnInit {
 
   appointmentData: Appointments;
 
-  currentUser: number=1;
+  currentUser: number;
   date: string;
 
 
@@ -29,6 +29,7 @@ export class ScheduleAppointmentsComponent implements OnInit {
   constructor(private appointmentsService: AppointmentsService, private route:ActivatedRoute, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.appointmentData = {} as Appointments;
     this.date = "";
+    this.currentUser = Number(sessionStorage.getItem("userId"));
 
   }
 

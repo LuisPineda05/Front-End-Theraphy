@@ -49,7 +49,11 @@ export class LoginComponent implements OnInit {
           a.password === this.loginForm.value.password
       });
 
+
       if(user) {
+
+        sessionStorage.setItem("userId", this.currentUser.id.toString());
+
         this.loginForm.reset();
         if(this.currentUser.type == "patient")
           this.router.navigate(['home-patient'])
