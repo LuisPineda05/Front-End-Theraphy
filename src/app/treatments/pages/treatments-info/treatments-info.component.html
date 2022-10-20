@@ -1,24 +1,34 @@
-<div  class="treatment-info" *ngIf="treatment$ | async as treatment">
-  <div class="content">
-    <div class="left-content">
-      <div class="nav-back">
-        <mat-icon [routerLink]="'/treatments'">keyboard_arrow_left</mat-icon>
-        <h1>{{treatment.title}}</h1>
+<div class="page">
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="contents">
+    <app-header></app-header>
+    <div><div  class="treatment-info" *ngIf="treatment$ | async as treatment">
+      <div class="content">
+        <div class="left-content">
+          <div class="nav-back">
+            <mat-icon [routerLink]="'/treatments'">keyboard_arrow_left</mat-icon>
+            <h1>{{treatment.title}}</h1>
+          </div>
+          <div class="treatment-text">
+            <h2>Sessions Quantity: {{treatment.sessions_quantity}}</h2>
+            <p>
+              {{treatment.description}}
+            </p>
+          </div>
+
+        </div>
+        <div class="content-img">
+          <img  class="card-content-img"  src="{{treatment.photo}}" alt="{{treatment.title}}" >
+        </div>
       </div>
-      <div class="treatment-text">
-        <h2>Sessions Quantity: {{treatment.sessions_quantity}}</h2>
-        <p>
-          {{treatment.description}}
-        </p>
+      <div class="btn-enroll">
+        <button mat-raised-button class="card-button" color="primary" (click)="addTreatmentByPatient()"  >Enroll</button>
       </div>
 
-    </div>
-    <div class="content-img">
-      <img  class="card-content-img"  src="{{treatment.photo}}" alt="{{treatment.title}}" >
-    </div>
+    </div></div>
   </div>
-  <div class="btn-enroll">
-    <button mat-raised-button class="card-button" color="primary" (click)="addTreatmentByPatient()"  >Enroll</button>
-  </div>
-
 </div>
+
+

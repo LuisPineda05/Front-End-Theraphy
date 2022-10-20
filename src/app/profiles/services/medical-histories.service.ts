@@ -8,7 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MedicalHistoriesService extends BaseService<MedicalHistory> {
 
-  endPoint = '/medical-histories';
+  endPoint = '/medical_histories';
 
   constructor(http: HttpClient) {
     super(http);

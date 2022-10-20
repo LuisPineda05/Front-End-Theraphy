@@ -44,7 +44,6 @@ const routes: Routes = [
   {path: 'home-doctor', component: HomeDoctorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 
 

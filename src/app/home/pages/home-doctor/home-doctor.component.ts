@@ -20,11 +20,14 @@ export class HomeDoctorComponent implements OnInit {
   patients: Patient[] = [];
   appointments: Appointments[]=[];
   myPatients: Patient[]=[];
-  currentUser: number = 1;
+  currentUser: number;
   aea:number = 0;
 
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
-              private patientsService: PatientsService, private appointmentsService: AppointmentsService) { }
+              private patientsService: PatientsService, private appointmentsService: AppointmentsService) {
+    this.currentUser = Number(sessionStorage.getItem("userId"));
+
+  }
 
   ngOnInit(): void {
     this.getAllPhysiotherapists();

@@ -17,7 +17,7 @@ export class NewReviewComponent implements OnInit {
 
   newReview: Review;
   physiotherapist$: Observable<Physiotherapist> | undefined
-  currentUser: number =1;
+  currentUser: number;
 
   selectedRating = 0;
   stars = [
@@ -52,6 +52,8 @@ export class NewReviewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private navigator:Router, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.newReview={} as Review;
+    this.currentUser = Number(sessionStorage.getItem("userId"));
+
   }
 
   ngOnInit(): void {

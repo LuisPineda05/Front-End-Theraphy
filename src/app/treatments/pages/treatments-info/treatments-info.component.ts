@@ -16,11 +16,13 @@ export class TreatmentsInfoComponent implements OnInit {
   treatment$: Observable<Treatment> | undefined;
   treatmentsByPatient: TreatmentsByPatient[]=[];
   newTreatmentByPatient: TreatmentsByPatient;
-  currentUser: number=1;
+  currentUser: number;
   treatmentInfoId: number=0;
 
   constructor(private route: ActivatedRoute,private navigator:Router, private treatmentsService: TreatmentsService, private treatmentsByPatientService: TreatmentsByPatientService ) {
-    this.newTreatmentByPatient={}as TreatmentsByPatient
+    this.newTreatmentByPatient={}as TreatmentsByPatient;
+    this.currentUser = Number(sessionStorage.getItem("userId"));
+
   }
 
 
