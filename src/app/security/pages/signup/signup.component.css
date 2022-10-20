@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 7% 0;
+  flex-direction: column;
 }
 
 #signupForm {
@@ -24,4 +24,10 @@
 
 .full-width {
   height: 70px;
+}
+
+img {
+  width: 100px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

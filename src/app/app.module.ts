@@ -49,6 +49,7 @@ import { HomeDoctorComponent } from './home/pages/home-doctor/home-doctor.compon
 import { LoginComponent } from './security/pages/login/login.component';
 import { SignupComponent } from './security/pages/signup/signup.component';
 import { HomePatientComponent } from './home/pages/home-patient/home-patient.component';
+import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { HomePatientComponent } from './home/pages/home-patient/home-patient.com
     HomeDoctorComponent,
     LoginComponent,
     SignupComponent,
-    HomePatientComponent
+    HomePatientComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

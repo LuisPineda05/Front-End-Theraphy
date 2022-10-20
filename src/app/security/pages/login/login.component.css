@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 7% 0;
 }
 
 #loginForm {
@@ -30,4 +29,15 @@
 
 .full-width {
   height: 70px;
+}
+
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  width: 100px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
