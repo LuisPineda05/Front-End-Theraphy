@@ -1,37 +1,32 @@
 export const sidenavMenuData = [
   {
-    routeLink: 'home-patient',
+    routeLink: '/home-patient',
     icon: 'home',
     label: 'Home'
   },
   {
-    routeLink: 'profile',
+    routeLink: '/profile-patient',
     icon: 'account_circle',
     label: 'Profile'
   },
   {
-    routeLink: 'treatments',
+    routeLink: '/treatments',
     icon: 'accessibility',
     label: 'Treatments'
   },
   {
-    routeLink: 'physiotherapists',
+    routeLink: '/physiotherapists',
     icon: 'group',
     label: 'Physiotherapists'
   },
   {
-    routeLink: 'medical-appointments',
+    routeLink: '/medical-appointments',
     icon: 'calendar_today',
     label: 'Appointments'
   },
   {
-    routeLink: 'my-treatments',
+    routeLink: '/my-treatments',
     icon: 'accessibility',
     label: 'My Treatments'
-  },
-  {
-    routeLink: 'my-physiotherapists',
-    icon: 'group',
-    label: 'My Physiotherapists'
   }
 ]

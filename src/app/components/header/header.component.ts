@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {UsersService} from "../../security/services/users.service";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
+
+
 
 }
