@@ -57,7 +57,7 @@
 
             <mat-form-field appearance="fill" class="full-width" >
               <mat-label>Rol</mat-label>
-              <mat-select type="text" formControlName="type" required [(ngModel)]="userData.type">
+              <mat-select  formControlName="type" required [(ngModel)]="userData.type">
                 <mat-option *ngFor="let type of types" [value]="type">
                   {{type}}
                 </mat-option>
@@ -93,7 +93,7 @@
       </mat-card-content>
 
       <mat-card-actions id="loginButtonContainer">
-        <button  [disabled]="registerForm.valid" mat-flat-button color="primary" type="submit">Create Account</button>
+        <button  [disabled]="!registerForm.valid" mat-flat-button color="primary" type="submit">Create Account</button>
       </mat-card-actions>
 
 
