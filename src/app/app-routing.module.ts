@@ -23,6 +23,7 @@ import {HomePatientComponent} from "./home/pages/home-patient/home-patient.compo
 import {HomeDoctorComponent} from "./home/pages/home-doctor/home-doctor.component";
 import {SignupComponent} from "./security/pages/signup/signup.component";
 import {LoginComponent} from "./security/pages/login/login.component";
+import {PageNotFoundComponent} from "./shared/pages/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {path: 'profile-patient', component: ProfilePatientComponent},
@@ -44,7 +45,9 @@ const routes: Routes = [
   {path: 'home-doctor', component: HomeDoctorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'}
+
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent }
 
 
 
