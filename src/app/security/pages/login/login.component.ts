@@ -54,6 +54,8 @@ export class LoginComponent implements OnInit {
 
         sessionStorage.setItem("userId", this.currentUser.id.toString());
 
+
+
         this.loginForm.reset();
         if(this.currentUser.type == "patient")
           this.router.navigate(['home-patient'])

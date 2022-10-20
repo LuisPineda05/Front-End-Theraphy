@@ -57,7 +57,7 @@
 
             <mat-form-field appearance="fill" class="full-width" >
               <mat-label>Rol</mat-label>
-              <mat-select  formControlName="type" required [(ngModel)]="userData.type">
+              <mat-select  formControlName="type" required [(ngModel)]="userData.type" >
                 <mat-option *ngFor="let type of types" [value]="type">
                   {{type}}
                 </mat-option>
