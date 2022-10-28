@@ -50,6 +50,8 @@ import { LoginComponent } from './security/pages/login/login.component';
 import { SignupComponent } from './security/pages/signup/signup.component';
 import { HomePatientComponent } from './home/pages/home-patient/home-patient.component';
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
+import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-fo
     LoginComponent,
     SignupComponent,
     HomePatientComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PhysiotherapistSidenavComponent
   ],
   imports: [
     BrowserModule,
