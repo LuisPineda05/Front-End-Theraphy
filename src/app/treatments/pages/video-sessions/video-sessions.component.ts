@@ -3,6 +3,7 @@ import {Observable, take} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {TreatmentsService} from "../../services/treatments.service";
 import {Treatment} from "../../model/treatment";
+import {UsersService} from "../../../security/services/users.service";
 
 @Component({
   selector: 'app-video-sessions',
@@ -17,8 +18,12 @@ export class VideoSessionsComponent implements OnInit {
   s_url:string="";
   s_value:boolean;
 
-  constructor(private route: ActivatedRoute, private treatmentsService: TreatmentsService ) {
+  userType: String;
+  types:String []=["patient", "physiotherapist"]
+
+  constructor(private usersService: UsersService,private route: ActivatedRoute, private treatmentsService: TreatmentsService ) {
     this.s_value=false;
+    this.userType="";
   }
 
   ngOnInit(): void {
@@ -26,6 +31,10 @@ export class VideoSessionsComponent implements OnInit {
       const id = params['id'];
       this.treatment$ = this.treatmentsService.getById(id);
     });
+
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+      this.userType= String(response.type);
+    })
   }
 
   nextSession(){

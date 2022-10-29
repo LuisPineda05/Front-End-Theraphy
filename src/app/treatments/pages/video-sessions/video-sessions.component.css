@@ -42,7 +42,9 @@ h1,h3, p {
   display: flex;
 }
 
-
+.nav-back {
+  display: flex;
+}
 
 
 .move h2:hover {
@@ -57,6 +59,10 @@ h1,h3, p {
 
 .nextButton{
   margin-left:800px;
+}
+mat-icon {
+  cursor: pointer;
+
 }
 
 @media (max-width: 1400px) and (min-width:1000px) {

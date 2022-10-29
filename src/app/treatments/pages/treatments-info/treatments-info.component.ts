@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {TreatmentsService} from "../../services/treatments.service";
 import {TreatmentsByPatient} from "../../model/treatments-by-patient";
 import {TreatmentsByPatientService} from "../../services/treatments-by-patient.service";
+import {UsersService} from "../../../security/services/users.service";
 
 
 @Component({
@@ -19,10 +20,13 @@ export class TreatmentsInfoComponent implements OnInit {
   currentUser: number;
   treatmentInfoId: number=0;
 
-  constructor(private route: ActivatedRoute,private navigator:Router, private treatmentsService: TreatmentsService, private treatmentsByPatientService: TreatmentsByPatientService ) {
+  userType: String;
+  types:String []=["patient", "physiotherapist"]
+
+  constructor(private usersService: UsersService, private route: ActivatedRoute,private navigator:Router, private treatmentsService: TreatmentsService, private treatmentsByPatientService: TreatmentsByPatientService ) {
     this.newTreatmentByPatient={}as TreatmentsByPatient;
     this.currentUser = Number(sessionStorage.getItem("userId"));
-
+    this.userType="";
   }
 
 
@@ -58,6 +62,10 @@ export class TreatmentsInfoComponent implements OnInit {
       this.treatmentsByPatient = response;
 
     });
+
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+      this.userType= String(response.type);
+    })
 
   }
 
