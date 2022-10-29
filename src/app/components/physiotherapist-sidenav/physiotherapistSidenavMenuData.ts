@@ -1,6 +1,6 @@
 export const physiotherapistSidenavMenuData = [
   {
-    routeLink: '/home-physiotherapist',
+    routeLink: '/home-doctor',
     icon: 'home',
     label: 'Home'
   },
@@ -10,17 +10,17 @@ export const physiotherapistSidenavMenuData = [
     label: 'Profile'
   },
   {
-    routeLink: '/treatments',
+    routeLink: '/home-doctor',
     icon: 'accessibility',
     label: 'Treatments'
   },
   {
     routeLink: '/patients',
     icon: 'group',
-    label: 'Physiotherapists'
+    label: 'My Patients'
   },
   {
-    routeLink: '/medical-appointments',
+    routeLink: '/home-doctor',
     icon: 'calendar_today',
     label: 'Appointments'
   },
