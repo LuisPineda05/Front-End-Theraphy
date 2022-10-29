@@ -51,6 +51,8 @@ import { SignupComponent } from './security/pages/signup/signup.component';
 import { HomePatientComponent } from './home/pages/home-patient/home-patient.component';
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
+import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-doctor.component';
+import { EducationComponent } from './profiles/pages/education/education.component';
 
 
 
@@ -77,7 +79,9 @@ import { PhysiotherapistSidenavComponent } from './components/physiotherapist-si
     SignupComponent,
     HomePatientComponent,
     PageNotFoundComponent,
-    PhysiotherapistSidenavComponent
+    PhysiotherapistSidenavComponent,
+    ProfileDoctorComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

@@ -52,7 +52,7 @@ export class NewReviewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private navigator:Router, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.newReview={} as Review;
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
 
@@ -67,7 +67,9 @@ export class NewReviewComponent implements OnInit {
       })
 
       this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
+
         this.newReview.reviewer=response.first_name+' '+response.last_name;
+        console.log(this.newReview.reviewer)
       })
 
     });

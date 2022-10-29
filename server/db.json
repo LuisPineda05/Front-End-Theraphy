@@ -95,6 +95,7 @@
   "physiotherapists": [
     {
       "id": 1,
+      "user_id": 4,
       "first_name": "Jhon",
       "paternal_surname": "Doe",
       "maternal_surname": "Hammer",
@@ -109,6 +110,7 @@
     },
     {
       "id": 2,
+      "user_id": 5,
       "first_name": "Joel",
       "paternal_surname": "Villanueva",
       "maternal_surname": "Del Rio",
@@ -123,6 +125,7 @@
     },
     {
       "id": 3,
+      "user_id": 6,
       "first_name": "William",
       "paternal_surname": "Cifuentes",
       "maternal_surname": "Lopez",
@@ -345,6 +348,51 @@
       "email": "william@email.com",
       "password": "william12",
       "type": "physiotherapist"
+    }
+  ],
+  "educations": [
+    {
+      "id": 1,
+      "physiotherapist_id": 1,
+      "physiotherapist_name": "Jhon Doe Hammer",
+      "specialization": "Neck",
+      "universities": [
+        "UPC",
+        "PUCP"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC",
+        "Especialización en Podología en la PUCP"
+
+      ]
+    },
+    {
+      "id": 2,
+      "physiotherapist_id": 2,
+      "physiotherapist_name": "Joel Villanueva Del Rio",
+      "specialization": "Knees",
+      "universities": [
+        "UPC",
+        "UNMSM"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC",
+        "Especialización en Podología en la UNMSM"
+
+      ]
+    },
+    {
+      "id": 3,
+      "physiotherapist_id": 3,
+      "physiotherapist_name": "William Cifuentes Lopez",
+      "specialization": "Geriatrics",
+      "universities": [
+        "UPC"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC"
+
+      ]
     }
   ]
 }
