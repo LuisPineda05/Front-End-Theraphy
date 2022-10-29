@@ -25,6 +25,7 @@ import {SignupComponent} from "./security/pages/signup/signup.component";
 import {LoginComponent} from "./security/pages/login/login.component";
 import {PageNotFoundComponent} from "./shared/pages/page-not-found/page-not-found.component";
 import {ProfileDoctorComponent} from "./profiles/pages/profile-doctor/profile-doctor.component";
+import {EducationComponent} from "./profiles/pages/education/education.component";
 
 const routes: Routes = [
   {path: 'profile-patient', component: ProfilePatientComponent},
@@ -41,13 +42,13 @@ const routes: Routes = [
   {path: 'my-treatments', component: TreatmentsByPatientComponent},
   {path: 'medical-history', component: MedicalHistoryComponent},
 
-
   {path: 'home-patient', component: HomePatientComponent},
   {path: 'home-doctor', component: HomeDoctorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
 
   {path: 'profile-physiotherapist', component: ProfileDoctorComponent},
+  {path: 'education', component: EducationComponent},
 
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }

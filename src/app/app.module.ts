@@ -52,6 +52,7 @@ import { HomePatientComponent } from './home/pages/home-patient/home-patient.com
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
 import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-doctor.component';
+import { EducationComponent } from './profiles/pages/education/education.component';
 
 
 
@@ -79,7 +80,8 @@ import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-
     HomePatientComponent,
     PageNotFoundComponent,
     PhysiotherapistSidenavComponent,
-    ProfileDoctorComponent
+    ProfileDoctorComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

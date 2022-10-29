@@ -349,5 +349,50 @@
       "password": "william12",
       "type": "physiotherapist"
     }
+  ],
+  "educations": [
+    {
+      "id": 1,
+      "physiotherapist_id": 1,
+      "physiotherapist_name": "Jhon Doe Hammer",
+      "specialization": "Neck",
+      "universities": [
+        "UPC",
+        "PUCP"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC",
+        "Especialización en Podología en la PUCP"
+
+      ]
+    },
+    {
+      "id": 2,
+      "physiotherapist_id": 2,
+      "physiotherapist_name": "Joel Villanueva Del Rio",
+      "specialization": "Knees",
+      "universities": [
+        "UPC",
+        "UNMSM"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC",
+        "Especialización en Podología en la UNMSM"
+
+      ]
+    },
+    {
+      "id": 3,
+      "physiotherapist_id": 3,
+      "physiotherapist_name": "William Cifuentes Lopez",
+      "specialization": "Geriatrics",
+      "universities": [
+        "UPC"
+      ],
+      "degrees": [
+        "Bachillerato en Medicina General en la UPC"
+
+      ]
+    }
   ]
 }
