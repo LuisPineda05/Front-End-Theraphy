@@ -10,7 +10,7 @@ export const physiotherapistSidenavMenuData = [
     label: 'Profile'
   },
   {
-    routeLink: '/home-doctor',
+    routeLink: '/treatments',
     icon: 'accessibility',
     label: 'Treatments'
   },
