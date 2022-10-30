@@ -53,6 +53,7 @@ import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-fo
 import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
 import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-doctor.component';
 import { EducationComponent } from './profiles/pages/education/education.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -109,7 +110,8 @@ import { EducationComponent } from './profiles/pages/education/education.compone
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule
   ],
   providers: [TreatmentsService,PhysiotherapistsService],
   bootstrap: [AppComponent]

@@ -39,7 +39,7 @@
 .card-information-data{
   display: flex;
   justify-content: space-between;
-  gap: 25px;
+  gap: 100px;
 }
 .example-full-width{
   width: 30%;
@@ -53,3 +53,6 @@ h1 {
   font-weight: 500;
 }
 
+.nextButton{
+  margin-left: 100px;
+}
