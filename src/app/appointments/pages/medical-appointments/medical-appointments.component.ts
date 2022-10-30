@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {PhysiotherapistsService} from "../../../security/services/physiotherapists.service";
 import {Physiotherapist} from "../../../security/model/physiotherapist";
+import {Appointments} from "../../model/appointments";
+import {AppointmentsService} from "../../services/appointments.service";
+import {UsersService} from "../../../security/services/users.service";
 
 @Component({
   selector: 'app-medical-appointments',
@@ -9,15 +12,62 @@ import {Physiotherapist} from "../../../security/model/physiotherapist";
 })
 export class MedicalAppointmentsComponent implements OnInit {
 
+  appointments: Appointments[]=[];
   physiotherapists: Physiotherapist[]=[];
-  constructor(private physiotherapistsService: PhysiotherapistsService) { }
+  currentUser: number;
+  filter:boolean;
+
+  userType: String;
+  types:String []=["patient", "physiotherapist"]
+
+
+  constructor(private usersService: UsersService, private appointmentsService: AppointmentsService) {
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
+    this.filter=true;
+    this.userType="";
+  }
 
   ngOnInit(): void {
-    this.getAllPhysiotherapists()
-  }
-  getAllPhysiotherapists(){
-    this.physiotherapistsService.getAll().subscribe((response: any) =>{
-      this.physiotherapists = response;
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+      this.userType= String(response.type);
     })
+
+    this.getAllAppointments();
+  }
+  getAllAppointments(){
+    this.appointmentsService.getAll().subscribe((response: any) =>{
+      this.appointments = response;
+    })
+  }
+
+
+
+
+  filterToDone(){
+    this.filter=true;
+  }
+
+  filterToToDO(){
+    this.filter=false;
+  }
+
+  getAppointmentByPhyName(name: string){
+    if(name?.length) {
+      this.appointmentsService.getItemByField('physiotherapist_name',name).subscribe((response: any)=> {
+          this.appointments= response;
+        }
+      )}else{
+      this.getAllAppointments();
+    }
+  }
+
+  getAppointmentByPatName(name: string){
+    if(name?.length) {
+      this.appointmentsService.getItemByField('patient_name',name).subscribe((response: any)=> {
+          this.appointments= response;
+        }
+      )}else{
+      this.getAllAppointments();
+    }
   }
 }

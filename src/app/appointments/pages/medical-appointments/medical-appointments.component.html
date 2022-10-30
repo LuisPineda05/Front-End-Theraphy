@@ -1,38 +1,154 @@
 <div class="page">
   <div class="sidenav">
-    <app-sidenav></app-sidenav>
+    <div *ngIf="userType===types[0]; else elseTemplate">
+      <app-sidenav></app-sidenav>
+    </div>
+    <ng-template #elseTemplate>
+      <app-physiotherapist-sidenav></app-physiotherapist-sidenav>
+    </ng-template>
   </div>
   <div class="contents">
     <app-header></app-header>
     <h1>Medical appointments</h1>
     <p>Check your medical appointments</p>
+
+    <div *ngIf="userType===types[0]; else treatmentsPhysiotherapist" >
     <form class="example-form">
 
-      <button mat-raised-button color="primary" class="search-btn"><span>Filter</span></button>
-      <mat-form-field class="example-full-width" appearance="outline">
-        <input type="search" matInput placeholder="Doctor's name">
+
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Physiotherapist</mat-label>
+          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPhyName(inputSearch.value)">
+          <mat-icon color="primary" matSuffix>search</mat-icon>
       </mat-form-field>
+
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="search-btn"><span>Filter</span></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="filterToDone()">Done</button>
+        <button mat-menu-item (click)="filterToToDO()">To do</button>
+      </mat-menu>
+
 
     </form>
 
-    <div class="cards" *ngFor="let physiotherapist of physiotherapists">
-      <mat-card class="example-card">
-        <div class="image">
-          <img mat-card-md-image src="{{ physiotherapist.photo}}">
-        </div>
-        <div class="information">
+    <div class="cards" *ngFor="let appointment of appointments">
+      <div *ngIf="filter; else treatmentsToDoPatient">
 
-          <div class="name">
-            <mat-card-title><span>{{ physiotherapist.first_name + ' ' + physiotherapist.paternal_surname }}</span></mat-card-title>
+        <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==true">
+
+          <div class="information">
+
+            <div class="name">
+              <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
+            </div>
+            <div class="card-information-data">
+              <div>
+                <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+              </div>
+              <div>
+              <button mat-raised-button color="primary" class="viewProfile-btn" ><span>Diagnosis</span></button>
+              </div>
+            </div>
+
           </div>
-          <div class="card-information-data">
-            <mat-card-subtitle><span>Physiotherapy</span></mat-card-subtitle>
-            <h4 class="nextButton" >Diagnosis ></h4>
+        </mat-card>
+
+      </div>
+
+      <ng-template #treatmentsToDoPatient>
+
+        <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==false">
+
+          <div class="information">
+
+            <div class="name">
+              <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
+            </div>
+            <div class="card-information-data">
+              <div>
+                <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+              </div>
+            </div>
+
           </div>
+        </mat-card>
+
+
+      </ng-template>
+      </div>
+    </div>
+
+    <ng-template #treatmentsPhysiotherapist>
+      <form class="example-form">
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Patient </mat-label>
+          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPatName(inputSearch.value)">
+          <mat-icon color="primary" matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="search-btn"><span>Filter</span></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="filterToDone()">Done</button>
+          <button mat-menu-item (click)="filterToToDO()">To do</button>
+        </mat-menu>
+
+
+      </form>
+
+      <div class="cards" *ngFor="let appointment of appointments">
+        <div *ngIf="filter; else treatmentsToDoPhysiotherapist">
+
+          <mat-card class="example-card" *ngIf="appointment.physiotherapist_id===currentUser && appointment.done==true">
+
+            <div class="information">
+
+              <div class="name">
+                <mat-card-title><span>{{ appointment.patient_name }}</span></mat-card-title>
+              </div>
+              <div class="card-information-data">
+                <div>
+                  <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                </div>
+                <div>
+                  <button mat-raised-button color="primary" class="viewProfile-btn" ><span>Diagnosis</span></button>
+                </div>
+              </div>
+
+            </div>
+          </mat-card>
 
         </div>
-      </mat-card>
-    </div>  </div>
+
+        <ng-template #treatmentsToDoPhysiotherapist>
+
+          <mat-card class="example-card" *ngIf="appointment.physiotherapist_id===currentUser && appointment.done==false">
+
+            <div class="information">
+
+              <div class="name">
+                <mat-card-title><span>{{ appointment.patient_name}}</span></mat-card-title>
+              </div>
+              <div class="card-information-data">
+                <div>
+                  <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                </div>
+              </div>
+
+            </div>
+          </mat-card>
+
+
+        </ng-template>
+      </div>
+    </ng-template>
+
+  </div>
 </div>
 
 
