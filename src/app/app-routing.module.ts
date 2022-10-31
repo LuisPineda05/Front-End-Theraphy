@@ -26,6 +26,7 @@ import {LoginComponent} from "./security/pages/login/login.component";
 import {PageNotFoundComponent} from "./shared/pages/page-not-found/page-not-found.component";
 import {ProfileDoctorComponent} from "./profiles/pages/profile-doctor/profile-doctor.component";
 import {EducationComponent} from "./profiles/pages/education/education.component";
+import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.component";
 
 const routes: Routes = [
   {path: 'profile-patient', component: ProfilePatientComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'my-treatments', component: TreatmentsByPatientComponent},
   {path: 'medical-history', component: MedicalHistoryComponent},
 
+  {path: 'my-patients', component: MyPatientsComponent},
   {path: 'home-patient', component: HomePatientComponent},
   {path: 'home-doctor', component: HomeDoctorComponent},
   {path: 'login', component: LoginComponent},
