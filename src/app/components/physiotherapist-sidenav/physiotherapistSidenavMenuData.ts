@@ -15,7 +15,7 @@ export const physiotherapistSidenavMenuData = [
     label: 'Treatments'
   },
   {
-    routeLink: '/patients',
+    routeLink: '/my-patients',
     icon: 'group',
     label: 'My Patients'
   },

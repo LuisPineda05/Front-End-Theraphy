@@ -52,8 +52,9 @@ import { HomePatientComponent } from './home/pages/home-patient/home-patient.com
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
 import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-doctor.component';
-import { EducationComponent } from './profiles/pages/education/education.component';
+import {EducationComponent} from './profiles/pages/education/education.component';
 import {MatMenuModule} from "@angular/material/menu";
+import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.component";
 
 
 
@@ -82,7 +83,8 @@ import {MatMenuModule} from "@angular/material/menu";
     PageNotFoundComponent,
     PhysiotherapistSidenavComponent,
     ProfileDoctorComponent,
-    EducationComponent
+    EducationComponent,
+    MyPatientsComponent
   ],
   imports: [
     BrowserModule,
