@@ -58,7 +58,7 @@ export class ScheduleAppointmentsComponent implements OnInit {
     const slicedate = new Date(this.date).toLocaleString();
     this.appointmentData.date = slicedate.split(',')[0];
     this.appointmentData.done=false;
-    this.appointmentData.diagnosis="";
+    //this.appointmentData.diagnosis="";
 
     this.appointmentsService.create(this.appointmentData).subscribe((response:any) =>{})
   }

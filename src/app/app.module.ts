@@ -55,6 +55,7 @@ import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-
 import {EducationComponent} from './profiles/pages/education/education.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.component";
+import {DiagnosisComponent} from "./appointments/pages/diagnosis/diagnosis.component";
 
 
 
@@ -84,7 +85,8 @@ import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.
     PhysiotherapistSidenavComponent,
     ProfileDoctorComponent,
     EducationComponent,
-    MyPatientsComponent
+    MyPatientsComponent,
+    DiagnosisComponent
   ],
   imports: [
     BrowserModule,

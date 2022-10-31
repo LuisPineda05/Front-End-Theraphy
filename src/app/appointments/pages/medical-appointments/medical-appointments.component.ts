@@ -4,6 +4,10 @@ import {Physiotherapist} from "../../../security/model/physiotherapist";
 import {Appointments} from "../../model/appointments";
 import {AppointmentsService} from "../../services/appointments.service";
 import {UsersService} from "../../../security/services/users.service";
+import {Observable, take} from "rxjs";
+import {Patient} from "../../../security/model/patient";
+import {PatientsService} from "../../../security/services/patients.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-medical-appointments',
@@ -21,10 +25,11 @@ export class MedicalAppointmentsComponent implements OnInit {
   types:String []=["patient", "physiotherapist"]
 
 
-  constructor(private usersService: UsersService, private appointmentsService: AppointmentsService) {
+  constructor(private route:ActivatedRoute, private usersService: UsersService, private appointmentsService: AppointmentsService) {
     this.currentUser = Number(sessionStorage.getItem("typeId"));
     this.filter=true;
     this.userType="";
+
   }
 
   ngOnInit(): void {

@@ -1,0 +1,64 @@
+<div class="page">
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="contents">
+    <app-header></app-header>
+    <div><form class="form" (submit)="onSubmit()" #appointmentForm='ngForm' *ngIf="patient$ | async as patient" >
+      <div class="form-top">
+        <div class="back-button">
+          <mat-icon [routerLink]="'/medical-appointments'">keyboard_arrow_left</mat-icon>
+        </div>
+        <div class="text" >
+          <h1>Diagnosis</h1>
+          <h2 >Select your date for your appointment with physiotherapist</h2>
+        </div>
+      </div>
+
+
+      <div class="form-body">
+        <div class="profile-footer">
+            <div class="patient-information">
+              <div class="university">
+                <li>
+                  <h3 >{{ patient.first_name + ' ' + patient.last_name}}</h3>
+                </li>
+              </div>
+              <div class="university">
+                <li>
+                  <h3>{{appointmentData$.date}} </h3>
+                </li>
+              </div>
+            </div>
+        </div>
+
+       <!-- <mat-form-field  appearance="outline">
+          <mat-label>Prescription</mat-label>
+          <textarea matInput placeholder="Ex. Obesity..." required [(ngModel)]="appointmentData.diagnosis"></textarea>
+        </mat-form-field>!-->
+
+          <div class="personal-information">
+            <div class="personal-information_data">
+              <mat-label>Name</mat-label>
+              <mat-form-field appearance="outline" >
+                <input matInput name = "topic" required [(ngModel)]="appointmentData$.diagnosis">
+                <mat-hint align="start">Ej. Obesity</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+
+          <div class="btn">
+          <button mat-button class="div-button"  [disabled]="appointmentForm.invalid" >Save</button>
+        </div>
+      </div>
+    </form>
+
+      <div>
+
+      </div></div>
+  </div>
+</div>
+
+
