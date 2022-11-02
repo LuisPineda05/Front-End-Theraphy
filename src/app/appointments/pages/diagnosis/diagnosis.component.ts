@@ -8,6 +8,7 @@ import {PhysiotherapistsService} from "../../../security/services/physiotherapis
 import {PatientsService} from "../../../security/services/patients.service";
 import {Physiotherapist} from "../../../security/model/physiotherapist";
 import {NgForm} from "@angular/forms";
+import {UsersService} from "../../../security/services/users.service";
 
 @Component({
   selector: 'app-diagnosis',
@@ -17,53 +18,42 @@ import {NgForm} from "@angular/forms";
 export class DiagnosisComponent implements OnInit {
   patient$: Observable<Patient> | undefined
   physiotherapist$: Observable<Physiotherapist> | undefined
-  appointmentData$!: Appointments
+  appointmentData!: Appointments
 
 
   currentUser: number;
 
+  userType: String;
+  types:String []=["patient", "physiotherapist"]
+
   @ViewChild('appointmentForm', {static: false})
   appointmentForm!: NgForm;
 
-  constructor(private appointmentsService: AppointmentsService, private route:ActivatedRoute, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
+  constructor(private usersService: UsersService, private appointmentsService: AppointmentsService, private route:ActivatedRoute, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.userType="";
 
   }
 
   ngOnInit(): void {
+
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+      this.userType= String(response.type);
+    })
+
     this.route.params.pipe(take(1)).subscribe((params)=> {
       const id = params['id'];
-      this.patient$ = this.patientsService.getById(id);
-      console.log(id)
-     // this.appointmentData.patient_id=Math.floor(id);
-      //console.log(this.appointmentData)
       this.appointmentsService.getById(id).subscribe((response:any)=>{
-        this.appointmentData$ = response;
+        this.appointmentData = response;
       })
 
     })
 
-    /* this.physiotherapistsService.getById(this.currentUser).subscribe((response: any) =>{
-     this.appointmentData.physiotherapist_name=response.first_name+' '+response.paternal_surname;
-    })
-
-    this.patientsService.getById(this.appointmentData.patient_id).subscribe((response: any) =>{
-      this.appointmentData.patient_name=response.first_name+' '+response.last_name;
-    })*/
   }
 
- /* addDiagnosis(){
-    this.appointmentData.id = 0;
-    this.appointmentData.physiotherapist_id=this.currentUser;
-
-    this.appointmentData.done=false;
-
-    this.appointmentsService.create(this.appointmentData).subscribe((response:any) =>{})
-  }*/
-
   updateDiagnosis(){
-   this.appointmentData$.done = true;
-   this.appointmentsService.update(this.appointmentData$.id, this.appointmentData$) //escucharte a esta hora debería ser grabado <3 xddd
+   this.appointmentData.done = true;
+   this.appointmentsService.update(this.appointmentData.id, this.appointmentData)
       .subscribe((response:any) => {
       });
   }
