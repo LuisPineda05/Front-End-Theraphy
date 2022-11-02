@@ -38,24 +38,21 @@
 
           <div class="information">
 
-            <div class="name">
-              <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
-            </div>
-            <div class="card-information-data">
-              <div>
-                <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+              <div class="name">
+                <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
               </div>
-              <div>
-              <button mat-raised-button color="primary" class="viewProfile-btn" ><span>Diagnosis</span></button>
+              <div class="card-information-data">
+                <div>
+                  <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                </div>
+                <div class="btn">
+                  <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>
+                </div>
               </div>
-            </div>
 
-          </div>
-          <div class="btn">
-            <button mat-button class="div-button" [routerLink]="'/diagnosis'"   >Diagnosis</button>
-          </div>
-        </mat-card>
+            </div>
+          </mat-card>
 
       </div>
 
@@ -65,20 +62,16 @@
 
           <div class="information">
 
-            <div class="name">
-              <mat-card-title><span>
-
-              </span></mat-card-title>
-            </div>
-            <div class="card-information-data">
-              <div>
-                <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+              <div class="name">
+                <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
               </div>
-              <div class="btn">
-              <button mat-button class="div-button" [routerLink]="['/diagnosis', appointment.id]" >Diagnosis</button>
-            </div>
-            </div>
+
+              <div class="card-information-data">
+                <div>
+                  <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                </div>
+              </div>
 
           </div>
 
@@ -123,7 +116,7 @@
                   <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
                   <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
-                <div>
+                <div class="btn">
                   <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>
                 </div>
               </div>
@@ -147,7 +140,7 @@
                   <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
                 <div class="btn">
-                  <button mat-button class="div-button" [routerLink]="['/diagnosis', appointment.id]" >Diagnosis</button>
+                  <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>
                 </div>
               </div>
 
