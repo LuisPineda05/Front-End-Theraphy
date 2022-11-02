@@ -4,7 +4,7 @@
   </div>
   <div class="contents">
     <app-header></app-header>
-    <div><form class="form" (submit)="onSubmit()" #appointmentForm='ngForm' *ngIf="patient$ | async as patient" >
+    <div><form class="form" (submit)="onSubmit()" #appointmentForm='ngForm'  *ngIf="patient$ | async as patient">
       <div class="form-top">
         <div class="back-button">
           <mat-icon [routerLink]="'/medical-appointments'">keyboard_arrow_left</mat-icon>
@@ -21,7 +21,7 @@
             <div class="patient-information">
               <div class="university">
                 <li>
-                  <h3 >{{ patient.first_name + ' ' + patient.last_name}}</h3>
+                  <h3 >{{appointmentData$.patient_name}}</h3>
                 </li>
               </div>
               <div class="university">
@@ -39,7 +39,7 @@
 
           <div class="personal-information">
             <div class="personal-information_data">
-              <mat-label>Name</mat-label>
+              <mat-label>Diagnosis</mat-label>
               <mat-form-field appearance="outline" >
                 <input matInput name = "topic" required [(ngModel)]="appointmentData$.diagnosis">
                 <mat-hint align="start">Ej. Obesity</mat-hint>
