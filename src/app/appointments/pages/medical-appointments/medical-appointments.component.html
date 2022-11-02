@@ -13,30 +13,30 @@
     <p>Check your medical appointments</p>
 
     <div *ngIf="userType===types[0]; else treatmentsPhysiotherapist" >
-    <form class="example-form">
+      <form class="example-form">
 
 
-      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Physiotherapist</mat-label>
           <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPhyName(inputSearch.value)">
           <mat-icon color="primary" matSuffix>search</mat-icon>
-      </mat-form-field>
+        </mat-form-field>
 
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="search-btn"><span>Filter</span></button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="filterToDone()">Done</button>
-        <button mat-menu-item (click)="filterToToDO()">To do</button>
-      </mat-menu>
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu" class="search-btn"><span>Filter</span></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="filterToDone()">Done</button>
+          <button mat-menu-item (click)="filterToToDO()">To do</button>
+        </mat-menu>
 
 
-    </form>
+      </form>
 
-    <div class="cards" *ngFor="let appointment of appointments">
-      <div *ngIf="filter; else treatmentsToDoPatient">
+      <div class="cards" *ngFor="let appointment of appointments">
+        <div *ngIf="filter; else treatmentsToDoPatient">
 
-        <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==true">
+          <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==true">
 
-          <div class="information">
+            <div class="information">
 
               <div class="name">
                 <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
@@ -54,13 +54,13 @@
             </div>
           </mat-card>
 
-      </div>
+        </div>
 
-      <ng-template #treatmentsToDoPatient>
+        <ng-template #treatmentsToDoPatient>
 
-        <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==false">
+          <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==false">
 
-          <div class="information">
+            <div class="information">
 
               <div class="name">
                 <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
@@ -73,12 +73,12 @@
                 </div>
               </div>
 
-          </div>
+            </div>
 
-        </mat-card>
+          </mat-card>
 
 
-      </ng-template>
+        </ng-template>
       </div>
     </div>
 
