@@ -1,6 +1,11 @@
 <div class="page">
   <div class="sidenav">
-    <app-sidenav></app-sidenav>
+    <div *ngIf="userType===types[0]; else elseTemplate">
+      <app-sidenav></app-sidenav>
+    </div>
+    <ng-template #elseTemplate>
+      <app-physiotherapist-sidenav></app-physiotherapist-sidenav>
+    </ng-template>
   </div>
   <div class="contents">
     <app-header></app-header>
@@ -24,7 +29,13 @@
         </div>
       </div>
       <div class="btn-enroll">
-        <button mat-raised-button class="card-button" color="primary" (click)="addTreatmentByPatient()"  >Enroll</button>
+
+        <div *ngIf="userType===types[0]; else elseTemplate">
+          <button mat-raised-button class="card-button" color="primary" (click)="addTreatmentByPatient()"  >Enroll</button>
+        </div>
+        <ng-template #elseTemplate>
+          <button mat-raised-button class="card-button" color="primary" [routerLink]="['/video-sessions', this.newTreatmentByPatient.treatment_id]" >View Sessions</button>
+        </ng-template>
       </div>
 
     </div></div>

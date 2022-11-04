@@ -50,6 +50,13 @@ import { LoginComponent } from './security/pages/login/login.component';
 import { SignupComponent } from './security/pages/signup/signup.component';
 import { HomePatientComponent } from './home/pages/home-patient/home-patient.component';
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
+import { PhysiotherapistSidenavComponent } from './components/physiotherapist-sidenav/physiotherapist-sidenav.component';
+import { ProfileDoctorComponent } from './profiles/pages/profile-doctor/profile-doctor.component';
+import {EducationComponent} from './profiles/pages/education/education.component';
+import {MatMenuModule} from "@angular/material/menu";
+import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.component";
+import {DiagnosisComponent} from "./appointments/pages/diagnosis/diagnosis.component";
+
 
 
 @NgModule({
@@ -74,7 +81,12 @@ import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-fo
     LoginComponent,
     SignupComponent,
     HomePatientComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PhysiotherapistSidenavComponent,
+    ProfileDoctorComponent,
+    EducationComponent,
+    MyPatientsComponent,
+    DiagnosisComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +114,8 @@ import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-fo
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule
   ],
   providers: [TreatmentsService,PhysiotherapistsService],
   bootstrap: [AppComponent]

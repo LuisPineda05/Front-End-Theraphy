@@ -1,5 +1,6 @@
 export interface Physiotherapist {
   id: number;
+  user_id:number;
   first_name: string;
   paternal_surname: string;
   maternal_surname: string;

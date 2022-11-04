@@ -1,11 +1,21 @@
 <div class="page">
   <div class="sidenav">
+    <div *ngIf="userType===types[0]; else elseTemplate">
     <app-sidenav></app-sidenav>
+    </div>
+    <ng-template #elseTemplate>
+      <app-physiotherapist-sidenav></app-physiotherapist-sidenav>
+    </ng-template>
   </div>
   <div class="contents">
     <app-header></app-header>
     <div><h1>Treatments</h1>
+      <div *ngIf="userType===types[0]; else elseTemplate2">
       <p>Start with the treatment you need</p>
+      </div>
+      <ng-template #elseTemplate2>
+        <p>Find treatments uploaded by other professionals</p>
+      </ng-template>
       <form class="example-form">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Treatment</mat-label>

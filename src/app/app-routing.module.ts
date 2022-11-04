@@ -24,6 +24,10 @@ import {HomeDoctorComponent} from "./home/pages/home-doctor/home-doctor.componen
 import {SignupComponent} from "./security/pages/signup/signup.component";
 import {LoginComponent} from "./security/pages/login/login.component";
 import {PageNotFoundComponent} from "./shared/pages/page-not-found/page-not-found.component";
+import {ProfileDoctorComponent} from "./profiles/pages/profile-doctor/profile-doctor.component";
+import {EducationComponent} from "./profiles/pages/education/education.component";
+import {MyPatientsComponent} from "./appointments/pages/my-patients/my-patients.component";
+import {DiagnosisComponent} from "./appointments/pages/diagnosis/diagnosis.component";
 
 const routes: Routes = [
   {path: 'profile-patient', component: ProfilePatientComponent},
@@ -39,12 +43,16 @@ const routes: Routes = [
   {path: 'new-review/:id', component: NewReviewComponent},
   {path: 'my-treatments', component: TreatmentsByPatientComponent},
   {path: 'medical-history', component: MedicalHistoryComponent},
+  {path: 'diagnosis/:id', component: DiagnosisComponent},
 
-
+  {path: 'my-patients', component: MyPatientsComponent},
   {path: 'home-patient', component: HomePatientComponent},
   {path: 'home-doctor', component: HomeDoctorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+
+  {path: 'profile-physiotherapist', component: ProfileDoctorComponent},
+  {path: 'education', component: EducationComponent},
 
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }

@@ -1,10 +1,10 @@
 <div class="page">
   <div class="sidenav">
-    <app-sidenav></app-sidenav>
+    <app-physiotherapist-sidenav></app-physiotherapist-sidenav>
   </div>
   <div class="contents">
     <app-header></app-header>
-    <div><div class="professional-profile" *ngFor="let patient of patients">
+    <div><div class="professional-profile" *ngFor="let physiotherapist of physiotherapists">
 
       <div class="profile-header">
         <div class="profile-header_left">
@@ -14,24 +14,24 @@
 
       <div class="profile-info">
         <div>
-          <img mat-card-md-image src="{{patient.photo}}" alt="{{ patient.first_name }}">
+          <img mat-card-md-image src="{{physiotherapist.photo}}" alt="{{ physiotherapist.first_name }}">
         </div>
         <div class="profile-data">
-          <h1> {{patient.first_name}} {{patient.last_name}} </h1>
+          <h1> {{physiotherapist.first_name}} {{physiotherapist.paternal_surname}} {{physiotherapist.maternal_surname}}</h1>
           <div class="profile-data-list">
             <li>
               <mat-icon class="icon" >accessibility</mat-icon>
-              <h2>{{patient.appointment_quantity}} appointments</h2>
+              <h2>{{physiotherapist.consultations_quantity}} appointments</h2>
             </li>
 
             <li>
               <mat-icon class="icon" >calendar_today</mat-icon>
-              <h2>{{patient.birthday}}</h2>
+              <h2>{{physiotherapist.birthdate}}</h2>
             </li>
 
             <li>
               <mat-icon class="icon" >email</mat-icon>
-              <h2>{{patient.email}}</h2>
+              <h2>{{physiotherapist.email}}</h2>
             </li>
 
           </div>
@@ -40,13 +40,13 @@
 
 
       <div>
-        <mat-card class="example-card" [routerLink]="['/my-treatments']">
+        <mat-card class="example-card" [routerLink]="['/home-doctor']">
           <div class="option-info">
-            <mat-card-subtitle ><img mat-card-md-image src="https://raw.githubusercontent.com/DigitAlholics-3-0/Front-End-Theraphy/master/src/assets/treatment-sessions.png" alt="Treatments Sessions icon">
+            <mat-card-subtitle ><img mat-card-md-image src="../../../../assets/treatment-sessions.png" alt="Treatments Sessions icon">
             </mat-card-subtitle>
             <div class="option-text">
               <mat-card-title><span>Treatments Sessions</span></mat-card-title>
-              <mat-card-subtitle ><span class="review-description">Check all the physiotherapies to which you have signed up</span></mat-card-subtitle>
+              <mat-card-subtitle ><span class="review-description">Check all the physiotherapies you offer</span></mat-card-subtitle>
             </div>
           </div>
           <div >
@@ -56,11 +56,11 @@
 
         <mat-card class="example-card" [routerLink]="['/medical-appointments']">
           <div class="option-info">
-            <mat-card-subtitle ><img mat-card-md-image src="https://raw.githubusercontent.com/DigitAlholics-3-0/Front-End-Theraphy/master/src/assets/medical-appointments.png" alt="Medical Appointments icon">
+            <mat-card-subtitle ><img mat-card-md-image src="../../../../assets/medical-appointments.png" alt="Medical Appointments icon">
             </mat-card-subtitle>
             <div class="option-text">
               <mat-card-title><span>Medical Appointments</span></mat-card-title>
-              <mat-card-subtitle ><span class="review-description">Check all your medical appointments</span></mat-card-subtitle>
+              <mat-card-subtitle ><span class="review-description">Check your history of medical appointments made</span></mat-card-subtitle>
             </div>
           </div>
           <div >
@@ -68,14 +68,14 @@
           </div>
         </mat-card>
 
-        <mat-card class="example-card" [routerLink]="['/medical-history']">
+        <mat-card class="example-card" [routerLink]="['/education']">
 
           <div class="option-info">
-            <mat-card-subtitle ><img mat-card-md-image src="https://raw.githubusercontent.com/DigitAlholics-3-0/Front-End-Theraphy/master/src/assets/medical-history.png" alt="Medical History icon">
+            <mat-card-subtitle ><img mat-card-md-image src="../../../../assets/education.png" alt="Education icon">
             </mat-card-subtitle>
             <div class="option-text">
-              <mat-card-title><span>Medical History</span></mat-card-title>
-              <mat-card-subtitle ><span class="review-description">Check your medical history</span></mat-card-subtitle>
+              <mat-card-title><span>Education</span></mat-card-title>
+              <mat-card-subtitle ><span class="review-description">View or modify your CV</span></mat-card-subtitle>
             </div>
           </div>
           <div >
