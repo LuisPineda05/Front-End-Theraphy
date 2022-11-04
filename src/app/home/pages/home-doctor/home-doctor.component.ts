@@ -26,7 +26,7 @@ export class HomeDoctorComponent implements OnInit {
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
               private patientsService: PatientsService, private appointmentsService: AppointmentsService) {
     this.currentUser = Number(sessionStorage.getItem("userId"));
-
+    //this.currentUser = 1;
   }
 
   ngOnInit(): void {
@@ -39,6 +39,11 @@ export class HomeDoctorComponent implements OnInit {
   getAllPhysiotherapists(){
     this.physiotherapistsService.getAll().subscribe((response: any) =>{
       this.physiotherapists = response;
+      for(let i = 0; i<this.physiotherapists.length;i++){
+        if(this.physiotherapists[i].user_id == this.currentUser) {
+          this.currentUser = this.physiotherapists[i].id;
+        }
+      }
     })
   }
 
@@ -46,7 +51,7 @@ export class HomeDoctorComponent implements OnInit {
     this.treatmentsService.getAll().subscribe((response:any)=>{
       this.treatments = response;
     })
-    this.getMyPatients();
+
 
   }
 
@@ -59,7 +64,9 @@ export class HomeDoctorComponent implements OnInit {
   getAllAppointments() {
     this.appointmentsService.getAll().subscribe((response: any)=>{
       this.appointments=response;
+      this.getMyPatients();
     })
+
   }
 
   getMyPatients() {
