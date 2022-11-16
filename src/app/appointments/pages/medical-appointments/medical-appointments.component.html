@@ -34,17 +34,17 @@
       <div class="cards" *ngFor="let appointment of appointments">
         <div *ngIf="filter; else treatmentsToDoPatient">
 
-          <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==true">
+          <mat-card class="example-card" *ngIf="appointment.patientId===currentUser && appointment.done==true">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.physiotherapistName }}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
                   <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.scheduledDate}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
                 <div class="btn">
                   <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>
@@ -58,18 +58,18 @@
 
         <ng-template #treatmentsToDoPatient>
 
-          <mat-card class="example-card" *ngIf="appointment.patient_id===currentUser && appointment.done==false">
+          <mat-card class="example-card" *ngIf="appointment.patientId===currentUser && appointment.done==false">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.physiotherapist_name }}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.physiotherapistName }}</span></mat-card-title>
               </div>
 
               <div class="card-information-data">
                 <div>
                   <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.scheduledDate}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
               </div>
 
@@ -104,17 +104,17 @@
       <div class="cards" *ngFor="let appointment of appointments">
         <div *ngIf="filter; else treatmentsToDoPhysiotherapist">
 
-          <mat-card class="example-card" *ngIf="appointment.physiotherapist_id===currentUser && appointment.done==true">
+          <mat-card class="example-card" *ngIf="appointment.physiotherapistId===currentUser && appointment.done==true">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.patient_name}}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.patientName}}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
                   <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.scheduledDate}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
                 <div class="btn">
                   <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>
@@ -127,17 +127,17 @@
         </div>
         <ng-template #treatmentsToDoPhysiotherapist>
 
-          <mat-card class="example-card" *ngIf="appointment.physiotherapist_id===currentUser && appointment.done==false">
+          <mat-card class="example-card" *ngIf="appointment.physiotherapistId===currentUser && appointment.done==false">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.patient_name}}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.patientName}}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
                   <mat-card-subtitle><span>{{appointment.topic}}</span></mat-card-subtitle>
-                  <mat-card-subtitle><span>{{appointment.date}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
+                  <mat-card-subtitle><span>{{appointment.scheduledDate}} - {{appointment.hour}}:{{appointment.minute}} </span></mat-card-subtitle>
                 </div>
                 <div class="btn">
                   <button mat-raised-button color="primary" class="viewProfile-btn"  [routerLink]="['/diagnosis', appointment.id]"><span>Diagnosis</span></button>

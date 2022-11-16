@@ -58,7 +58,7 @@ export class MedicalAppointmentsComponent implements OnInit {
 
   getAppointmentByPhyName(name: string){
     if(name?.length) {
-      this.appointmentsService.getItemByField('physiotherapist_name',name).subscribe((response: any)=> {
+      this.appointmentsService.getItemByField('physiotherapistName',name).subscribe((response: any)=> {
           this.appointments= response;
         }
       )}else{
@@ -68,7 +68,7 @@ export class MedicalAppointmentsComponent implements OnInit {
 
   getAppointmentByPatName(name: string){
     if(name?.length) {
-      this.appointmentsService.getItemByField('patient_name',name).subscribe((response: any)=> {
+      this.appointmentsService.getItemByField('patientName',name).subscribe((response: any)=> {
           this.appointments= response;
         }
       )}else{

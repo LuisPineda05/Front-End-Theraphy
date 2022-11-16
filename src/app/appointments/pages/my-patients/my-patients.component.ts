@@ -39,10 +39,10 @@ export class MyPatientsComponent implements OnInit {
 
     for(let i = 0; i < this.appointments.length; i++){
 
-      if(this.appointments[i].physiotherapist_id == this.currentUser) {
+      if(this.appointments[i].physiotherapistId == this.currentUser) {
 
         for(let j = 0; j < this.patients.length; j++) {
-          if(this.patients[j].id == this.appointments[i].patient_id
+          if(this.patients[j].id == this.appointments[i].patientId
           && this.equalElement(this.patients[j].id)) {
 
             this.myPatients.push(this.patients[j]);
@@ -64,7 +64,7 @@ export class MyPatientsComponent implements OnInit {
 
   getPatientByQuery(name: string){
     if(name?.length) {
-      this.patientService.getItemByField('first_name',name).subscribe((response: any)=> {
+      this.patientService.getItemByField('firstName',name).subscribe((response: any)=> {
           this.myPatients = response;
         }
       )}else{
@@ -75,8 +75,8 @@ export class MyPatientsComponent implements OnInit {
   getPat(name: string, patientsFiltered: Patient[] = [], found: boolean = false) {
 
     for(let i = 0; i < this.myPatients.length; i++) {
-      if(this.myPatients[i].first_name.includes(name) ||
-          this.myPatients[i].last_name.includes(name)){
+      if(this.myPatients[i].firstName.includes(name) ||
+          this.myPatients[i].lastName.includes(name)){
         patientsFiltered.push(this.myPatients[i]);
         found = true;
       }
