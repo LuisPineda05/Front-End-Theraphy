@@ -41,16 +41,16 @@ export class TreatmentsInfoComponent implements OnInit {
        this.treatmentsService.getById(id).subscribe((response:any)=>{
          this.newTreatmentByPatient.title= response.title;
          this.newTreatmentByPatient.description= response.description;
-         this.newTreatmentByPatient.sessions_quantity= response.sessions_quantity;
-         this.newTreatmentByPatient.physiotherapist_id= response.physiotherapist_id;
-         this.newTreatmentByPatient.photo= response.photo;
-         this.newTreatmentByPatient.videos_sessions= response.videos_sessions;
+         this.newTreatmentByPatient.sessionsQuantity= response.sessions_quantity;
+         this.newTreatmentByPatient.physiotherapistId= response.physiotherapist_id;
+         this.newTreatmentByPatient.photoUrl = response.photo;
+         this.newTreatmentByPatient.videosSessions= response.videos_sessions;
        })
 
        this.newTreatmentByPatient.id=0;
-       this.newTreatmentByPatient.treatment_id=Math.floor(id);
-       this.newTreatmentByPatient.patient_id=this.currentUser;
-       this.newTreatmentByPatient.registration_date=new Date().toLocaleDateString();
+       this.newTreatmentByPatient.treatmentId=Math.floor(id);
+       this.newTreatmentByPatient.patientId=this.currentUser;
+       this.newTreatmentByPatient.registrationDate=new Date().toLocaleDateString();
        this.newTreatmentByPatient.progress=0;
 
 
@@ -71,11 +71,11 @@ export class TreatmentsInfoComponent implements OnInit {
 
   addTreatmentByPatient(){
 
-      if(this.treatmentsByPatient.find(treatmentByPatient =>treatmentByPatient.patient_id===this.newTreatmentByPatient.patient_id && treatmentByPatient.treatment_id===this.newTreatmentByPatient.treatment_id)){
-        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatment_id]);
+      if(this.treatmentsByPatient.find(treatmentByPatient =>treatmentByPatient.patientId===this.newTreatmentByPatient.patientId && treatmentByPatient.treatmentId===this.newTreatmentByPatient.treatmentId)){
+        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatmentId]);
       }else{
         this.treatmentsByPatientService.create(this.newTreatmentByPatient).subscribe((response: any) => {});
-        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatment_id]);
+        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatmentId]);
       }
 
     }
