@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   submitForm(){
     this.usersService.getAll1().subscribe(response=>{
-      const user = response.find((a: any)=> {
+      const user = response.content.find((a: any)=> {
         this.currentUser = a;
         return a.email === this.loginForm.value.email &&
           a.password === this.loginForm.value.password
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         }else {
           this.physiotherapistsService.getItemByField("userId", this.currentUser.id).subscribe((response: any) => {
 
-            sessionStorage.setItem("typeId", response[0].id.toString());
+            sessionStorage.setItem("typeId", response.content[0].id.toString());
           });
 
           this.router.navigate(['home-doctor'])

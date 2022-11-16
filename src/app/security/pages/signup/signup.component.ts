@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getAll().subscribe((response: any) =>{
-      this.users=response;
+      this.users=response.content;
       console.log(this.users.length)
     })
   }
