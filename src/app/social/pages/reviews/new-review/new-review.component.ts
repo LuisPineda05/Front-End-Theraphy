@@ -59,7 +59,7 @@ export class NewReviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.pipe( take(1)).subscribe((params) => {
       const id = params['id'];
-      this.newReview.physiotherapist_id=Math.floor(id);
+      this.newReview.physiotherapistId=Math.floor(id);
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
 
       this.physiotherapistsService.getById(id).subscribe((response: any) =>{
@@ -102,14 +102,14 @@ export class NewReviewComponent implements OnInit {
 
 
     this.newReview.id=0;
-    this.newReview.patient_id=this.currentUser;
+    this.newReview.patientId=this.currentUser;
 
 
 
     this.newReview.stars=this.selectedRating;
 
     this.reviewsService.create(this.newReview).subscribe((response: any) => {})
-    this.navigator.navigate(['/reviews', this.newReview.physiotherapist_id]);
+    this.navigator.navigate(['/reviews', this.newReview.physiotherapistId]);
   }
 
 }
