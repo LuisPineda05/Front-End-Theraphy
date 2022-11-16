@@ -4,7 +4,6 @@ export interface Physiotherapist {
   firstName: string,
   paternalSurname: string,
   maternalSurname: string,
-  lastName: string;
   specialization: string,
   age: number,
   location: string,

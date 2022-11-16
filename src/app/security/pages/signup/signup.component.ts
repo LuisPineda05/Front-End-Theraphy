@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   ]
 
 
-  @ViewChild('signupForm', {static: false})
+  @ViewChild('signupForm', {static: true})
   signupForm!: NgForm;
 
   registerForm: FormGroup = this.formBuilder.group({

@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         if(this.currentUser.type == "patient") {
           this.patientsService.getItemByField("userId", this.currentUser.id).subscribe((response:any)=>{
-            sessionStorage.setItem("typeId", response[0].id.toString());
+            sessionStorage.setItem("typeId", response.content[0].id.toString());
           });
 
           this.router.navigate(['home-patient'])
