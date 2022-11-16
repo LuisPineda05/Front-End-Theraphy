@@ -16,7 +16,7 @@
 
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Name</mat-label>
-              <input type="text" matInput formControlName="first_name" required [(ngModel)]="userData.first_name">
+              <input type="text" matInput formControlName="first_name" required [(ngModel)]="userData.firstName">
               <mat-error *ngIf="first_name?.errors?.['required']">Name is <strong>required</strong></mat-error>
             </mat-form-field>
 
@@ -26,7 +26,7 @@
 
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Paternal Surname</mat-label>
-              <input type="text" matInput formControlName="paternal_surname" required [(ngModel)]="userData.paternal_surname">
+              <input type="text" matInput formControlName="paternal_surname" required [(ngModel)]="userData.paternalSurname">
               <mat-error *ngIf="paternal_surname?.errors?.['required']">Paternal surname is <strong>required</strong></mat-error>
             </mat-form-field>
 
@@ -36,7 +36,7 @@
 
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Maternal Surname</mat-label>
-              <input type="text" matInput formControlName="maternal_surname" required [(ngModel)]="userData.maternal_surname">
+              <input type="text" matInput formControlName="maternal_surname" required [(ngModel)]="userData.maternalSurname">
               <mat-error *ngIf="maternal_surname?.errors?.['required']">Maternal surname is <strong>required</strong></mat-error>
             </mat-form-field>
 
@@ -47,7 +47,7 @@
 
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Birthday</mat-label>
-              <input type="text" matInput formControlName="birthday" required [(ngModel)]="userData.birthday">
+              <input type="text" matInput formControlName="birthday" required [(ngModel)]="userData.birthdayDate">
               <mat-error *ngIf="birthday?.errors?.['required']">Birthday is <strong>required</strong></mat-error>
             </mat-form-field>
 
