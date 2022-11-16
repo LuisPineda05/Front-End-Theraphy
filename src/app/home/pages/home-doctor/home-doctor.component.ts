@@ -40,7 +40,7 @@ export class HomeDoctorComponent implements OnInit {
     this.physiotherapistsService.getAll().subscribe((response: any) =>{
       this.physiotherapists = response;
       for(let i = 0; i<this.physiotherapists.length;i++){
-        if(this.physiotherapists[i].user_id == this.currentUser) {
+        if(this.physiotherapists[i].userId == this.currentUser) {
           this.currentUser = this.physiotherapists[i].id;
         }
       }
@@ -71,9 +71,9 @@ export class HomeDoctorComponent implements OnInit {
 
   getMyPatients() {
     this.appointments.forEach(element => {
-      if(this.currentUser == element.physiotherapist_id) {
+      if(this.currentUser == element.physiotherapistId) {
         this.patients.forEach(element2 => {
-          if(element2.id == element.patient_id) {
+          if(element2.id == element.patientId) {
             this.myPatients.push(element2);
           }
         })

@@ -13,11 +13,11 @@
         <div class="patient-info_body">
           <ul>
             <div class="date" *ngFor="let appointment of appointments">
-              <div class="date" *ngIf="appointment.physiotherapist_id == currentUser
+              <div class="date" *ngIf="appointment.physiotherapistId == currentUser
                                     && !appointment.done">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="notifications"></mat-icon>
                 <li>
-                  <h3>{{appointment.date}}</h3>
+                  <h3>{{appointment.scheduledDate}}</h3>
                 </li>
               </div>
             </div>
@@ -32,7 +32,7 @@
         <div class="patient-info_body" >
           <ul>
             <div class="date" *ngFor="let treatment of treatments">
-              <div class="date" *ngIf="treatment.physiotherapist_id == currentUser">
+              <div class="date" *ngIf="treatment.physiotherapistId == currentUser">
 
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="live_tv"></mat-icon>
 
@@ -54,13 +54,13 @@
         <div class="my-patients_body" >
           <ul>
             <div *ngFor="let appointment of appointments">
-              <div *ngIf="appointment.physiotherapist_id == currentUser">
+              <div *ngIf="appointment.physiotherapistId == currentUser">
                 <div class="date" *ngFor="let patient of patients">
-                  <img *ngIf="patient.id == appointment.patient_id"
-                       :src="{{patient.photo}}">
+                  <img *ngIf="patient.id == appointment.patientId"
+                       :src="{{patient.photoUrl}}">
                   <li>
-                    <h3 *ngIf="patient.id == appointment.patient_id"  class="patient_name">
-                      {{patient.first_name + " " + patient.last_name}}</h3>
+                    <h3 *ngIf="patient.id == appointment.patientId"  class="patient_name">
+                      {{patient.firstName + " " + patient.lastName}}</h3>
                   </li>
                 </div>
               </div>
