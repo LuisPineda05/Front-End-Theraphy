@@ -24,7 +24,7 @@ export class MedicalHistoryComponent implements OnInit {
 
   getAllMedicalHistories(){
     this.medicalHistoriesService.getAll().subscribe((response:any)=>{
-      this.medicalHistories = response;
+      this.medicalHistories = response.content;
     })
   }
 
