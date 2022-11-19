@@ -13,8 +13,8 @@
         <div class="patient-info_body">
           <ul>
             <div class="date" *ngFor="let appointment of appointments">
-              <div class="date" *ngIf="appointment.physiotherapistId == currentUser
-                                    && !appointment.done">
+              <div class="date" *ngIf="appointment.physiotherapist.id == currentUser
+                                    && appointment.done===false.toString()">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="notifications"></mat-icon>
                 <li>
                   <h3>{{appointment.scheduledDate}}</h3>
@@ -54,9 +54,9 @@
         <div class="my-patients_body" >
           <ul>
             <div *ngFor="let appointment of appointments">
-              <div *ngIf="appointment.physiotherapistId == currentUser">
+              <div *ngIf="appointment.physiotherapist.id == currentUser">
                 <div class="date" *ngFor="let patient of patients">
-                  <img *ngIf="patient.id == appointment.patientId"
+                  <img *ngIf="patient.id == appointment.patient.id"
                        :src="{{patient.photoUrl}}">
                   <li>
                     <h3 *ngIf="patient.id == appointment.patientId"  class="patient_name">
