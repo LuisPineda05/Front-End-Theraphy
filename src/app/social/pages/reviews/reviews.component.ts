@@ -25,7 +25,7 @@ export class ReviewsComponent implements OnInit {
 
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
 
-      this.reviewsService.getItemByField("physiotherapist_id", id).subscribe((response:any)=>{
+      this.reviewsService.getItemByField("physiotherapistId", id).subscribe((response:any)=>{
         this.reviews$=response;
      });
 

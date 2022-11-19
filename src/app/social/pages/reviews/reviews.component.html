@@ -18,9 +18,9 @@
       <div class="professional-profile-card" >
         <mat-card >
           <mat-card-title-group>
-            <img mat-card-md-image src="{{ physiotherapist.photo}}" alt="{{ physiotherapist.first_name + ' ' + physiotherapist.paternal_surname }}">
-            <mat-card-title><span>{{ physiotherapist.first_name + ' ' + physiotherapist.paternal_surname }}</span></mat-card-title>
-            <mat-card-subtitle><span>{{'Medical Consultancies: '+ physiotherapist.consultations_quantity}}</span></mat-card-subtitle>
+            <img mat-card-md-image src="{{ physiotherapist.photoUrl}}" alt="{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname }}">
+            <mat-card-title><span>{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname }}</span></mat-card-title>
+            <mat-card-subtitle><span>{{'Medical Consultancies: '+ physiotherapist.consultationsQuantity}}</span></mat-card-subtitle>
             <mat-card-subtitle ><mat-icon class="icon" >star</mat-icon> <span>{{physiotherapist.rating}}</span></mat-card-subtitle>
 
           </mat-card-title-group>

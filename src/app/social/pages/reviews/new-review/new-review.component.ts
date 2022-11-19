@@ -52,14 +52,14 @@ export class NewReviewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private navigator:Router, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.newReview={} as Review;
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
 
   ngOnInit(): void {
     this.route.params.pipe( take(1)).subscribe((params) => {
       const id = params['id'];
-      this.newReview.physiotherapist_id=Math.floor(id);
+      this.newReview.physiotherapistId=Math.floor(id);
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
 
       this.physiotherapistsService.getById(id).subscribe((response: any) =>{
@@ -67,7 +67,9 @@ export class NewReviewComponent implements OnInit {
       })
 
       this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
+
         this.newReview.reviewer=response.first_name+' '+response.last_name;
+        console.log(this.newReview.reviewer)
       })
 
     });
@@ -100,14 +102,14 @@ export class NewReviewComponent implements OnInit {
 
 
     this.newReview.id=0;
-    this.newReview.patient_id=this.currentUser;
+    this.newReview.patientId=this.currentUser;
 
 
 
     this.newReview.stars=this.selectedRating;
 
     this.reviewsService.create(this.newReview).subscribe((response: any) => {})
-    this.navigator.navigate(['/reviews', this.newReview.physiotherapist_id]);
+    this.navigator.navigate(['/reviews', this.newReview.physiotherapistId]);
   }
 
 }

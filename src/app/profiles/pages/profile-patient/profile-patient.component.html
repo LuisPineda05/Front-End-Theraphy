@@ -4,7 +4,7 @@
   </div>
   <div class="contents">
     <app-header></app-header>
-    <div><div class="professional-profile" *ngIf="patient$ | async as patient">
+    <div><div class="professional-profile" *ngFor="let patient of patients">
 
       <div class="profile-header">
         <div class="profile-header_left">
@@ -14,19 +14,19 @@
 
       <div class="profile-info">
         <div>
-          <img mat-card-md-image src="{{patient.photo}}" alt="{{ patient.first_name }}">
+          <img mat-card-md-image src="{{patient.photoUrl}}" alt="{{ patient.firstName }}">
         </div>
         <div class="profile-data">
-          <h1> {{patient.first_name}} {{patient.last_name}} </h1>
+          <h1> {{patient.firstName}} {{patient.lastName}} </h1>
           <div class="profile-data-list">
             <li>
               <mat-icon class="icon" >accessibility</mat-icon>
-              <h2>{{patient.appointment_quantity}} appointments</h2>
+              <h2>{{patient.appointmentQuantity}} appointments</h2>
             </li>
 
             <li>
               <mat-icon class="icon" >calendar_today</mat-icon>
-              <h2>{{patient.birthday}}</h2>
+              <h2>{{patient.birthdayDate}}</h2>
             </li>
 
             <li>
@@ -46,7 +46,7 @@
             </mat-card-subtitle>
             <div class="option-text">
               <mat-card-title><span>Treatments Sessions</span></mat-card-title>
-              <mat-card-subtitle ><span class="review-description">Check all the physiotherapies to which you have signed up</span></mat-card-subtitle>
+              <mat-card-subtitle ><span class="review-description">Check all the physiotherapists to which you have signed up</span></mat-card-subtitle>
             </div>
           </div>
           <div >

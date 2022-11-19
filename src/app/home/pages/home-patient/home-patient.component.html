@@ -14,11 +14,11 @@
 
           <ul>
             <div class="date" *ngFor="let appointment of appointments">
-              <div class="date" *ngIf="appointment.patient_id == currentUser
+              <div class="date" *ngIf="appointment.patientId == currentUser
                                     && !appointment.done">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="notifications"></mat-icon>
                 <li>
-                  <h3>{{appointment.date}}</h3>
+                  <h3>{{appointment.scheduledDate}}</h3>
                 </li>
               </div>
 
@@ -37,13 +37,13 @@
         <div class="patient-info_body">
           <ul>
             <div class="date" *ngFor="let appointment of appointments">
-              <div *ngIf="appointment.patient_id == currentUser">
+              <div *ngIf="appointment.patientId == currentUser">
                 <div class="date" *ngFor="let physiotherapist of physiotherapists">
-                  <img *ngIf="appointment.physiotherapist_id == physiotherapist.id
+                  <img *ngIf="appointment.physiotherapistId == physiotherapist.id
                           && appointment.done"
-                       :src="{{physiotherapist.photo}}">
+                       :src="{{physiotherapist.photoUrl}}">
                   <li>
-                    <h3 *ngIf="appointment.physiotherapist_id == physiotherapist.id
+                    <h3 *ngIf="appointment.physiotherapistId == physiotherapist.id
                           && appointment.done"
                         class="diagnosis">{{appointment.diagnosis}}</h3>
                   </li>
@@ -62,7 +62,7 @@
         <div class="patient-info_body" >
           <ul>
             <div class="date" *ngFor="let treatment of myTreatments">
-              <div  class="date" *ngIf="treatment.patient_id == currentUser">
+              <div  class="date" *ngIf="treatment.patientId == currentUser">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="live_tv"></mat-icon>
 
                 <li>
@@ -82,9 +82,9 @@
         </div>
         <div class="progress_body" >
           <div class="progress-treatments" *ngFor="let treatment of myTreatments">
-            <div class="progress-treatment" *ngIf="treatment.patient_id == currentUser">
+            <div class="progress-treatment" *ngIf="treatment.patientId == currentUser">
 
-              <img :src="{{treatment.photo}}">
+              <img :src="{{treatment.photoUrl}}">
 
               <div class="progress-treatment_left">
                 <h2>{{treatment.title}}</h2>

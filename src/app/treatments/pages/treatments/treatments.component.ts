@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {Treatment} from "../../model/treatment";
 import {TreatmentsService} from "../../services/treatments.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {UsersService} from "../../../security/services/users.service";
 
 
 
@@ -14,13 +15,21 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class TreatmentsComponent implements OnInit {
 
   treatments: Treatment[]=[];
+  userType: String;
+  types:String []=["patient", "physiotherapist"]
 
 
-
-  constructor(private treatmentsService: TreatmentsService, private route: ActivatedRoute, private router: Router) {
+  constructor(private usersService: UsersService, private treatmentsService: TreatmentsService, private route: ActivatedRoute, private router: Router) {
+  this.userType="";
   }
 
   ngOnInit(): void {
+
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+     this.userType= String(response.type);
+    })
+
+
     this.getAllTreatments();
   }
 

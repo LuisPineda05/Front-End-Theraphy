@@ -38,27 +38,27 @@ export class ScheduleAppointmentsComponent implements OnInit {
       const id = params['id'];
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
       console.log(id)
-      this.appointmentData.physiotherapist_id=Math.floor(id);
+      this.appointmentData.physiotherapistId=Math.floor(id);
     })
 
     this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
-      this.appointmentData.patient_name=response.first_name+' '+response.last_name;
+      this.appointmentData.patientName=response.first_name+' '+response.last_name;
     })
 
-    this.physiotherapistsService.getById(this.appointmentData.physiotherapist_id).subscribe((response: any) =>{
-      this.appointmentData.physiotherapist_name=response.first_name+' '+response.paternal_surname;
+    this.physiotherapistsService.getById(this.appointmentData.physiotherapistId).subscribe((response: any) =>{
+      this.appointmentData.physiotherapistName=response.first_name+' '+response.paternal_surname;
     })
   }
 
 
   addAppointment(){
     this.appointmentData.id = 0;
-    this.appointmentData.patient_id=this.currentUser;
+    this.appointmentData.patientId=this.currentUser;
 
     const slicedate = new Date(this.date).toLocaleString();
-    this.appointmentData.date = slicedate.split(',')[0];
+    this.appointmentData.scheduledDate = slicedate.split(',')[0];
     this.appointmentData.done=false;
-    this.appointmentData.diagnosis="";
+    //this.appointmentData.diagnosis="";
 
     this.appointmentsService.create(this.appointmentData).subscribe((response:any) =>{})
   }

@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../services/users.service";
 import {Router} from "@angular/router";
 import {User} from "../../model/user";
+import {PhysiotherapistsService} from "../../services/physiotherapists.service";
+import {PatientsService} from "../../services/patients.service";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private usersService: UsersService,
-              private router: Router) { }
+              private router: Router, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) { }
 
   ngOnInit(): void {
   }
@@ -57,10 +59,20 @@ export class LoginComponent implements OnInit {
 
 
         this.loginForm.reset();
-        if(this.currentUser.type == "patient")
+        if(this.currentUser.type == "patient") {
+          this.patientsService.getItemByField("userId", this.currentUser.id).subscribe((response:any)=>{
+            sessionStorage.setItem("typeId", response[0].id.toString());
+          });
+
           this.router.navigate(['home-patient'])
-        else
+        }else {
+          this.physiotherapistsService.getItemByField("userId", this.currentUser.id).subscribe((response: any) => {
+
+            sessionStorage.setItem("typeId", response[0].id.toString());
+          });
+
           this.router.navigate(['home-doctor'])
+        }
       } else {
         alert("Incorrect email or password. Please try again.")
       }

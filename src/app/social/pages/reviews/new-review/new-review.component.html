@@ -1,3 +1,10 @@
+<div class="page">
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="contents">
+    <app-header></app-header>
+
 <div  *ngIf="physiotherapist$ | async as physiotherapist">
   <div class="header">
     <div class="header_left">
@@ -9,7 +16,7 @@
   <div class="review-form">
     <h1>Physiotherapist</h1>
     <mat-divider></mat-divider>
-    <h2>{{'Dr. '+physiotherapist.first_name+' '+physiotherapist.paternal_surname+' '+physiotherapist.maternal_surname}}</h2>
+    <h2>{{'Dr. '+physiotherapist.firstName+' '+physiotherapist.paternalSurname+' '+physiotherapist.maternalSurname}}</h2>
 
     <h1>Stars</h1>
     <mat-divider></mat-divider>
@@ -41,7 +48,8 @@
 
 </div>
 
-
+  </div>
+</div>
 
 
 
