@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         }else {
           this.physiotherapistsService.getItemByField("userId", this.currentUser.id).subscribe((response: any) => {
 
-            sessionStorage.setItem("typeId", response.content[0].id.toString());
+            sessionStorage.setItem("typeId", response.id.toString());
           });
 
           this.router.navigate(['home-doctor'])
