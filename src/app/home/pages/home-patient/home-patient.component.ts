@@ -23,7 +23,7 @@ export class HomePatientComponent implements OnInit {
 
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
               private myTreatmentsService: TreatmentsByPatientService, private appointmentsService: AppointmentsService) {
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
 
@@ -54,7 +54,7 @@ export class HomePatientComponent implements OnInit {
 
   getAllMyTreatments(){
     this.myTreatmentsService.getAll().subscribe((response: any)=>{
-      this.myTreatments = response;
+      this.myTreatments = response.content;
     })
   }
 }
