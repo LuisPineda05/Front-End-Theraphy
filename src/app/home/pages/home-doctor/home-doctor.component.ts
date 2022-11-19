@@ -73,7 +73,7 @@ export class HomeDoctorComponent implements OnInit {
     this.appointments.forEach(element => {
       if(this.currentUser == element.physiotherapistId) {
         this.patients.forEach(element2 => {
-          if(element2.id == element.patientId) {
+          if(element2.id == element.patient.id) {
             this.myPatients.push(element2);
           }
         })
