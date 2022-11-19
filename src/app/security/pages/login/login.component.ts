@@ -58,13 +58,14 @@ export class LoginComponent implements OnInit {
 
         this.loginForm.reset();
         if(this.currentUser.type == "patient") {
-          this.patientsService.getItemByField("userId", this.currentUser.id).subscribe((response:any)=>{
-            sessionStorage.setItem("typeId", response.content[0].id.toString());
+
+          this.patientsService.getItemByField("userId", Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+            sessionStorage.setItem("typeId", response.id.toString());
           });
 
           this.router.navigate(['home-patient'])
         }else {
-          this.physiotherapistsService.getItemByField("userId", this.currentUser.id).subscribe((response: any) => {
+          this.physiotherapistsService.getItemByField("userId", Number(sessionStorage.getItem("userId"))).subscribe((response: any) => {
 
             sessionStorage.setItem("typeId", response.id.toString());
           });
