@@ -18,7 +18,7 @@ import {UsersService} from "../../../security/services/users.service";
 export class DiagnosisComponent implements OnInit {
   patient$: Observable<Patient> | undefined
   physiotherapist$: Observable<Physiotherapist> | undefined
-  appointmentData!: Appointments
+  appointmentData: Appointments
 
 
   currentUser: number;
@@ -31,6 +31,7 @@ export class DiagnosisComponent implements OnInit {
 
   constructor(private usersService: UsersService, private appointmentsService: AppointmentsService, private route:ActivatedRoute, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.appointmentData={} as Appointments;
     this.userType="";
 
   }
@@ -52,7 +53,7 @@ export class DiagnosisComponent implements OnInit {
   }
 
   updateDiagnosis(){
-   this.appointmentData.done = true;
+   this.appointmentData.done = "true";
    this.appointmentsService.update(this.appointmentData.id, this.appointmentData)
       .subscribe((response:any) => {
       });
