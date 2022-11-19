@@ -18,7 +18,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Physiotherapist</mat-label>
-          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPhyName(inputSearch.value)">
+          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)=" getAppointmentByPhysiotherapistName(inputSearch.value)">
           <mat-icon color="primary" matSuffix>search</mat-icon>
         </mat-form-field>
 
@@ -34,12 +34,12 @@
       <div class="cards" *ngFor="let appointment of appointments">
         <div *ngIf="filter; else treatmentsToDoPatient">
 
-          <mat-card class="example-card" *ngIf="appointment.patientId===currentUser && appointment.done==true">
+          <mat-card class="example-card" *ngIf="appointment.patient.id===currentUser && appointment.done==true.toString()">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.physiotherapistName }}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.physiotherapist.firstName }}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
@@ -58,12 +58,12 @@
 
         <ng-template #treatmentsToDoPatient>
 
-          <mat-card class="example-card" *ngIf="appointment.patientId===currentUser && appointment.done==false">
+          <mat-card class="example-card" *ngIf="appointment.patient.id===currentUser && appointment.done==false.toString()">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.physiotherapistName }}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.physiotherapist.firstName }}</span></mat-card-title>
               </div>
 
               <div class="card-information-data">
@@ -88,7 +88,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Patient </mat-label>
-          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPatName(inputSearch.value)">
+          <input type="search" #inputSearch matInput placeholder="Jhon Doe" (keyup)="getAppointmentByPatientName(inputSearch.value)">
           <mat-icon color="primary" matSuffix>search</mat-icon>
         </mat-form-field>
 
@@ -104,12 +104,12 @@
       <div class="cards" *ngFor="let appointment of appointments">
         <div *ngIf="filter; else treatmentsToDoPhysiotherapist">
 
-          <mat-card class="example-card" *ngIf="appointment.physiotherapistId===currentUser && appointment.done==true">
+          <mat-card class="example-card" *ngIf="appointment.physiotherapist.id===currentUser && appointment.done==true.toString()">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.patientName}}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.patient.firstName}}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
@@ -127,12 +127,12 @@
         </div>
         <ng-template #treatmentsToDoPhysiotherapist>
 
-          <mat-card class="example-card" *ngIf="appointment.physiotherapistId===currentUser && appointment.done==false">
+          <mat-card class="example-card" *ngIf="appointment.physiotherapist.id===currentUser && appointment.done==false.toString()">
 
             <div class="information">
 
               <div class="name">
-                <mat-card-title><span>{{ appointment.patientName}}</span></mat-card-title>
+                <mat-card-title><span>{{ appointment.patient.firstName}}</span></mat-card-title>
               </div>
               <div class="card-information-data">
                 <div>
