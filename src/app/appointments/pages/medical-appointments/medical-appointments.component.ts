@@ -8,6 +8,7 @@ import {Observable, take} from "rxjs";
 import {Patient} from "../../../security/model/patient";
 import {PatientsService} from "../../../security/services/patients.service";
 import {ActivatedRoute} from "@angular/router";
+import {Treatment} from "../../../treatments/model/treatment";
 
 @Component({
   selector: 'app-medical-appointments',
@@ -39,9 +40,10 @@ export class MedicalAppointmentsComponent implements OnInit {
 
     this.getAllAppointments();
   }
+
   getAllAppointments(){
     this.appointmentsService.getAll().subscribe((response: any) =>{
-      this.appointments = response;
+      this.appointments = response.content;
     })
   }
 
@@ -66,13 +68,48 @@ export class MedicalAppointmentsComponent implements OnInit {
     }
   }
 
-  getAppointmentByPatName(name: string){
-    if(name?.length) {
-      this.appointmentsService.getItemByField('patientName',name).subscribe((response: any)=> {
-          this.appointments= response;
-        }
-      )}else{
+  getAppointmentByPhysiotherapistName(name: string, appointmentsFiltered: Appointments[] = [], found: boolean = false) {
+
+    for(let i = 0; i < this.appointments.length; i++) {
+      if(this.appointments[i].physiotherapist.firstName.includes(name)
+      || this.appointments[i].physiotherapist.paternalSurname.includes(name) ){
+        appointmentsFiltered.push(this.appointments[i]);
+        found = true;
+      }
+    }
+
+    if(found && name!="") {
+      this.appointments= appointmentsFiltered;
+    } else{
       this.getAllAppointments();
     }
+
+
+
   }
+
+
+
+    getAppointmentByPatientName(name: string, appointmentsFiltered: Appointments[] = [], found: boolean = false) {
+
+    for(let i = 0; i < this.appointments.length; i++) {
+      if(this.appointments[i].patient.firstName.includes(name) ||
+        this.appointments[i].patient.lastName.includes(name)
+      ){
+        appointmentsFiltered.push(this.appointments[i]);
+        found = true;
+      }
+    }
+
+    if(found && name!="") {
+      this.appointments=  appointmentsFiltered;
+    } else{
+      this.getAllAppointments();
+    }
+
+
+
+  }
+
+
 }
