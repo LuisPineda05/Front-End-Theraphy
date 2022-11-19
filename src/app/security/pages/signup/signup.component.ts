@@ -110,7 +110,7 @@ export class SignupComponent implements OnInit {
         this.newPatient.email=this.userData.email;
         this.newPatient.appointmentQuantity=0;
         this.newPatient.photoUrl="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
-        this.newPatient.createdAt=new Date().toLocaleDateString();
+        //this.newPatient.createdAt=new Date().toLocaleDateString();
 
         this.patientsService.create(this.newPatient).subscribe();
       }else{
@@ -121,9 +121,9 @@ export class SignupComponent implements OnInit {
         this.newPhysiotherapist.firstName=this.userData.firstName;
         this.newPhysiotherapist.paternalSurname=this.userData.paternalSurname
         this.newPhysiotherapist.maternalSurname=this.userData.maternalSurname;
-        this.newPhysiotherapist.specialization="";
+        this.newPhysiotherapist.specialization="physiotherapist";
         this.newPhysiotherapist.age=Number(new Date().getFullYear())-Number(this.userData.birthdayDate.split('/')[2]);
-        this.newPhysiotherapist.location="";
+        this.newPhysiotherapist.location="Lima";
         this.newPhysiotherapist.birthdayDate=this.userData.birthdayDate;
         this.newPhysiotherapist.email=this.userData.email;
         this.newPhysiotherapist.rating=0;
