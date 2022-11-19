@@ -24,12 +24,29 @@ export class ReviewsComponent implements OnInit {
       const id = params['id'];
 
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
+      this.physiotherapistsService.getById(id).subscribe((response:any)=>{
+        this.physiotherapist=response;
+      });
+      this.reviewsService.getItemByExternalId("reviews", id,"physiotherapists").subscribe((response:any)=>{
+        this.reviews$=response.content;
 
-      this.reviewsService.getItemByField("physiotherapistId", id).subscribe((response:any)=>{
-        this.reviews$=response;
+        for(let i = 0;  i < this.reviews$.length; i++) {
+          this.currentRating += this.reviews$[i].stars
+        }
+        this.currentRating /= this.reviews$.length;
+
+        this.physiotherapist.rating=this.currentRating;
+
+        this.physiotherapistsService.update(this.physiotherapist.id,this.physiotherapist).subscribe();
+        console.log(this.physiotherapist);
      });
 
     });
+
+
+
+
+
   }
 
 }
