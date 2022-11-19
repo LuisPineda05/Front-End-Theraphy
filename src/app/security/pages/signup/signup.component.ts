@@ -128,7 +128,7 @@ export class SignupComponent implements OnInit {
         this.newPhysiotherapist.email=this.userData.email;
         this.newPhysiotherapist.rating=0;
         this.newPhysiotherapist.consultationsQuantity=0;
-        this.newPatient.photoUrl="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
+        this.newPhysiotherapist.photoUrl="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
 
         this.physiotherapistsService.create(this.newPhysiotherapist).subscribe();
       }
