@@ -58,15 +58,7 @@ export class MedicalAppointmentsComponent implements OnInit {
     this.filter=false;
   }
 
-  getAppointmentByPhyName(name: string){
-    if(name?.length) {
-      this.appointmentsService.getItemByField('physiotherapistName',name).subscribe((response: any)=> {
-          this.appointments= response;
-        }
-      )}else{
-      this.getAllAppointments();
-    }
-  }
+
 
   getAppointmentByPhysiotherapistName(name: string, appointmentsFiltered: Appointments[] = [], found: boolean = false) {
 
