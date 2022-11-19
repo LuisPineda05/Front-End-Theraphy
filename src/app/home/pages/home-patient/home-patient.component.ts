@@ -36,19 +36,19 @@ export class HomePatientComponent implements OnInit {
 
   getAllAppointments(){
     this.appointmentsService.getAll().subscribe((response: any) => {
-      this.appointments = response;
+      this.appointments = response.content;
     })
   }
 
   getAllPhysiotherapists(){
     this.physiotherapistsService.getAll().subscribe((response: any) =>{
-      this.physiotherapists = response;
+      this.physiotherapists = response.content;
     })
   }
 
   getAllTreatments(){
     this.treatmentsService.getAll().subscribe((response:any)=>{
-      this.treatments = response;
+      this.treatments = response.content;
     })
   }
 
