@@ -62,11 +62,11 @@
         <div class="patient-info_body" >
           <ul>
             <div class="date" *ngFor="let treatment of myTreatments">
-              <div  class="date" *ngIf="treatment.patientId == currentUser">
+              <div  class="date" *ngIf="treatment.patient.id == currentUser">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="live_tv"></mat-icon>
 
                 <li>
-                  <h3>{{treatment.title}}</h3>
+                  <h3>{{treatment.treatment.title}}</h3>
                 </li>
               </div>
             </div>
