@@ -47,7 +47,7 @@
 
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Birthday</mat-label>
-              <input type="text" matInput formControlName="birthday" required [(ngModel)]="userData.birthdayDate">
+              <input type="text" matInput formControlName="birthdayDate" required [(ngModel)]="userData.birthdayDate">
               <mat-error *ngIf="birthday?.errors?.['required']">Birthday is <strong>required</strong></mat-error>
             </mat-form-field>
 
