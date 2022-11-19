@@ -1,13 +1,10 @@
+import {Treatment} from "./treatment";
+import {Patient} from "../../security/model/patient";
+
 export interface TreatmentsByPatient {
   id:number,
-  treatmentId: number,
-  patientId: number,
-  title: string,
-  description: string,
-  sessionsQuantity: number,
-  physiotherapistId: number,
-  photoUrl: string,
-  videosSessions: string[],
+  treatment: Treatment,
+  patient: Patient,
   registrationDate:string,
   progress:number
 }
