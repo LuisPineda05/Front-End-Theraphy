@@ -32,7 +32,7 @@
         <div class="patient-info_body" >
           <ul>
             <div class="date" *ngFor="let treatment of treatments">
-              <div class="date" *ngIf="treatment.physiotherapistId == currentUser">
+              <div class="date" *ngIf="treatment.physiotherapist.id == currentUser">
 
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="live_tv"></mat-icon>
 
@@ -49,7 +49,7 @@
 
       <div class="my-patients">
         <div class="my-patients_title">
-          <h1 [routerLink]="['/patients']">My Patients > </h1>
+          <h1 [routerLink]="['/my-patients']">My Patients > </h1>
         </div>
         <div class="my-patients_body" >
           <ul>
@@ -59,7 +59,7 @@
                   <img *ngIf="patient.id == appointment.patient.id"
                        :src="{{patient.photoUrl}}">
                   <li>
-                    <h3 *ngIf="patient.id == appointment.patientId"  class="patient_name">
+                    <h3 *ngIf="patient.id == appointment.patient.id"  class="patient_name">
                       {{patient.firstName + " " + patient.lastName}}</h3>
                   </li>
                 </div>
