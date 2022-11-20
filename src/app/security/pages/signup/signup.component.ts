@@ -109,7 +109,7 @@ export class SignupComponent implements OnInit {
         this.newPatient.birthdayDate=this.userData.birthdayDate;
         this.newPatient.email=this.userData.email;
         this.newPatient.appointmentQuantity=0;
-        this.newPatient.photoUrl="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
+        this.newPatient.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
         //this.newPatient.createdAt=new Date().toLocaleDateString();
 
         this.patientsService.create(this.newPatient).subscribe();
@@ -128,7 +128,7 @@ export class SignupComponent implements OnInit {
         this.newPhysiotherapist.email=this.userData.email;
         this.newPhysiotherapist.rating=0;
         this.newPhysiotherapist.consultationsQuantity=0;
-        this.newPhysiotherapist.photoUrl="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
+        this.newPhysiotherapist.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
         this.physiotherapistsService.create(this.newPhysiotherapist).subscribe();
       }
