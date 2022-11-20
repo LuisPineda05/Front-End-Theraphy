@@ -102,14 +102,12 @@ export class NewReviewComponent implements OnInit {
 
 
     this.newReview.id=0;
-    this.newReview.patientId=this.currentUser;
-
-
 
     this.newReview.stars=this.selectedRating;
 
     this.reviewsService.create(this.newReview).subscribe((response: any) => {})
-    this.navigator.navigate(['/reviews', this.newReview.physiotherapistId]);
+
+    this.navigator.navigate(['/reviews', this.newReview.physiotherapist.id]);
   }
 
 }

@@ -25,12 +25,17 @@ export class TreatmentsInfoComponent implements OnInit {
 
   constructor(private usersService: UsersService, private route: ActivatedRoute,private navigator:Router, private treatmentsService: TreatmentsService, private treatmentsByPatientService: TreatmentsByPatientService ) {
     this.newTreatmentByPatient={}as TreatmentsByPatient;
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
     this.userType="";
   }
 
 
   ngOnInit(): void {
+
+    this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+      this.userType= String(response.type);
+    })
+
      this.route.params.pipe( take(1)).subscribe((params) => {
       const id = params['id'];
       this.treatmentInfoId=id;
@@ -38,6 +43,8 @@ export class TreatmentsInfoComponent implements OnInit {
 
       //Filling NewTreatmentByPatient
 
+
+       this.newTreatmentByPatient.id=0;
        this.treatmentsService.getById(id).subscribe((response:any)=>{
          this.newTreatmentByPatient.title= response.title;
          this.newTreatmentByPatient.description= response.description;
@@ -47,10 +54,16 @@ export class TreatmentsInfoComponent implements OnInit {
          this.newTreatmentByPatient.videosSessions= response.videos_sessions;
        })
 
-       this.newTreatmentByPatient.id=0;
-       this.newTreatmentByPatient.treatmentId=Math.floor(id);
-       this.newTreatmentByPatient.patientId=this.currentUser;
-       this.newTreatmentByPatient.registrationDate=new Date().toLocaleDateString();
+       this.patientsService.getById(this.currentUser).subscribe((response:any)=>{
+         this.newTreatmentByPatient.patient=response;
+         console.log(this.newTreatmentByPatient.patient);
+
+       })
+
+       /*this.newTreatmentByPatient.treatmentId=Math.floor(id);
+       this.newTreatmentByPatient.patientId=this.currentUser;*/
+       this.newTreatmentByPatient.registrationDate=String(new Date().getDate());
+       console.log(this.newTreatmentByPatient.registrationDate);
        this.newTreatmentByPatient.progress=0;
 
 
@@ -71,11 +84,22 @@ export class TreatmentsInfoComponent implements OnInit {
 
   addTreatmentByPatient(){
 
-      if(this.treatmentsByPatient.find(treatmentByPatient =>treatmentByPatient.patientId===this.newTreatmentByPatient.patientId && treatmentByPatient.treatmentId===this.newTreatmentByPatient.treatmentId)){
-        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatmentId]);
+
+      if(this.treatmentsByPatient.find(treatmentByPatient =>treatmentByPatient.patient.id===this.newTreatmentByPatient.patient.id && treatmentByPatient.treatment.id===this.newTreatmentByPatient.treatment.id)){
+        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatment.id]);
       }else{
-        this.treatmentsByPatientService.create(this.newTreatmentByPatient).subscribe((response: any) => {});
-        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatmentId]);
+
+
+
+
+
+        this.treatmentsByPatientService.create(this.newTreatmentByPatient).subscribe();
+
+
+
+
+
+        this.navigator.navigate(['/video-sessions', this.newTreatmentByPatient.treatment.id]);
       }
 
     }

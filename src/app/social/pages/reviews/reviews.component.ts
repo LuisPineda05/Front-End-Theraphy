@@ -15,9 +15,12 @@ export class ReviewsComponent implements OnInit {
 
   reviews$: Review[]=[]
   physiotherapist$: Observable<Physiotherapist> | undefined
+  physiotherapist: Physiotherapist
+  currentRating: number = 0;
 
-
-  constructor(private route: ActivatedRoute, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService) { }
+  constructor(private route: ActivatedRoute, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService) {
+    this.physiotherapist = {} as Physiotherapist;
+  }
 
   ngOnInit(): void {
     this.route.params.pipe( take(1)).subscribe((params) => {

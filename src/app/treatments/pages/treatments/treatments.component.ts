@@ -28,6 +28,7 @@ export class TreatmentsComponent implements OnInit {
 
     this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
      this.userType= String(response.type);
+
     })
 
 

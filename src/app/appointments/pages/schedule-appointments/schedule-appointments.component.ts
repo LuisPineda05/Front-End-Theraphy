@@ -18,6 +18,7 @@ export class ScheduleAppointmentsComponent implements OnInit {
 
   appointmentData: Appointments;
 
+
   currentUser: number;
   date: string;
 
@@ -29,7 +30,7 @@ export class ScheduleAppointmentsComponent implements OnInit {
   constructor(private appointmentsService: AppointmentsService, private route:ActivatedRoute, private physiotherapistsService: PhysiotherapistsService, private patientsService: PatientsService) {
     this.appointmentData = {} as Appointments;
     this.date = "";
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
 
@@ -38,22 +39,20 @@ export class ScheduleAppointmentsComponent implements OnInit {
       const id = params['id'];
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
       console.log(id)
-      this.appointmentData.physiotherapistId=Math.floor(id);
+
+      this.physiotherapistsService.getById(id).subscribe((response: any) =>{
+        this.appointmentData.physiotherapist=response;
+      })
+      this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
+        this.appointmentData.patient=response;
+      })
     })
 
-    this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
-      this.appointmentData.patientName=response.first_name+' '+response.last_name;
-    })
-
-    this.physiotherapistsService.getById(this.appointmentData.physiotherapistId).subscribe((response: any) =>{
-      this.appointmentData.physiotherapistName=response.first_name+' '+response.paternal_surname;
-    })
   }
 
 
   addAppointment(){
     this.appointmentData.id = 0;
-    this.appointmentData.patientId=this.currentUser;
 
     const slicedate = new Date(this.date).toLocaleString();
     this.appointmentData.scheduledDate = slicedate.split(',')[0];

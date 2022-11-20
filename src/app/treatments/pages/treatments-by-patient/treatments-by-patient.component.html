@@ -18,7 +18,7 @@
       <mat-divider></mat-divider>
 
       <div class="cards" *ngFor="let treatment of treatmentsByPatient">
-        <div *ngIf="treatment.patientId===currentUser">
+        <div *ngIf="treatment.patient.id===currentUser">
           <mat-card class="example-card">
             <mat-card-title-group>
               <mat-card-title><span>{{ treatment.title }}</span></mat-card-title>
@@ -28,7 +28,7 @@
               <img mat-card-md-image src="{{treatment.photoUrl}}" alt="{{ treatment.title }}">
             </mat-card-title-group>
             <mat-card-content>
-              <button mat-raised-button color="primary" class="info-btn" [routerLink]="['/video-sessions', treatment.id]"><span>Continue</span></button>
+              <button mat-raised-button color="primary" class="info-btn" [routerLink]="['/video-sessions', treatment.treatment.id]"><span>Continue</span></button>
             </mat-card-content>
           </mat-card>
         </div>
