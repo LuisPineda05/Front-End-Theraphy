@@ -50,14 +50,13 @@ export class ScheduleAppointmentsComponent implements OnInit {
 
   }
 
-
   addAppointment(){
     this.appointmentData.id = 0;
 
     const slicedate = new Date(this.date).toLocaleString();
     this.appointmentData.scheduledDate = slicedate.split(',')[0];
-    this.appointmentData.done=false;
-    //this.appointmentData.diagnosis="";
+    this.appointmentData.done="false";
+    this.appointmentData.diagnosis="Blank diagnosis";
 
     this.appointmentsService.create(this.appointmentData).subscribe((response:any) =>{})
   }

@@ -29,7 +29,7 @@ export class TreatmentsByPatientComponent implements OnInit {
     })
   }
 
-  getTreatmentByQuery(title: string){
+  /*getTreatmentByQuery(title: string){
     if(title?.length) {
       this.treatmentsByPatientService.getItemByField('title',title).subscribe((response: any)=> {
           this.treatmentsByPatient = response;

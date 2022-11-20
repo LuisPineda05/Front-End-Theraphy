@@ -62,16 +62,6 @@ export class MyPatientsComponent implements OnInit {
     return true;
   }
 
-  getPatientByQuery(name: string){
-    if(name?.length) {
-      this.patientService.getItemByField('firstName',name).subscribe((response: any)=> {
-          this.myPatients = response;
-        }
-      )}else{
-      this.getPatients();
-    }
-  }
-
   getPat(name: string, patientsFiltered: Patient[] = [], found: boolean = false) {
 
     for(let i = 0; i < this.myPatients.length; i++) {

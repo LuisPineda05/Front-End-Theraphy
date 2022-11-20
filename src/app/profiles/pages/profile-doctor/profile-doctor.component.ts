@@ -18,7 +18,7 @@ export class ProfileDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.physiotherapistsService.getItemByField('userId',this.currentUser).subscribe((response:any)=>{
-      this.physiotherapists=response;
+      this.physiotherapists.push(response);
     });
   }
 
