@@ -1,16 +1,13 @@
+import {Physiotherapist} from "../../security/model/physiotherapist";
+import {Patient} from "../../security/model/patient";
+
 export interface Appointments {
   id: number,
-  patientId: number,
-  patientName: string,
-  patientSurname: string,
-  physiotherapistId: number,
-  physiotherapistName: string,
+  patient: Patient,
+  physiotherapist: Physiotherapist,
   scheduledDate: string,
-  hour: number,
-  minute: number,
-  ampm: string,
   topic: string,
-  done: boolean,
+  done: string,
   diagnosis: string,
 
 }

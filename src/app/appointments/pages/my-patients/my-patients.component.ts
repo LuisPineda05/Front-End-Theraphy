@@ -24,10 +24,10 @@ export class MyPatientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentsService.getAll().subscribe((response: any) =>{
-      this.appointments = response;
+      this.appointments = response.content;
 
       this.patientService.getAll().subscribe((response: any) =>{
-          this.patients = response;
+          this.patients = response.content;
           this.getPatients();
         }
       )
@@ -39,10 +39,10 @@ export class MyPatientsComponent implements OnInit {
 
     for(let i = 0; i < this.appointments.length; i++){
 
-      if(this.appointments[i].physiotherapistId == this.currentUser) {
+      if(this.appointments[i].physiotherapist.id == this.currentUser) {
 
         for(let j = 0; j < this.patients.length; j++) {
-          if(this.patients[j].id == this.appointments[i].patientId
+          if(this.patients[j].id == this.appointments[i].patient.id
           && this.equalElement(this.patients[j].id)) {
 
             this.myPatients.push(this.patients[j]);
@@ -60,16 +60,6 @@ export class MyPatientsComponent implements OnInit {
       }
     }
     return true;
-  }
-
-  getPatientByQuery(name: string){
-    if(name?.length) {
-      this.patientService.getItemByField('firstName',name).subscribe((response: any)=> {
-          this.myPatients = response;
-        }
-      )}else{
-      this.getPatients();
-    }
   }
 
   getPat(name: string, patientsFiltered: Patient[] = [], found: boolean = false) {

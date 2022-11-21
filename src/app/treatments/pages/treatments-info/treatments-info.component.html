@@ -34,7 +34,7 @@
           <button mat-raised-button class="card-button" color="primary" (click)="addTreatmentByPatient()"  >Enroll</button>
         </div>
         <ng-template #elseTemplate>
-          <button mat-raised-button class="card-button" color="primary" [routerLink]="['/video-sessions', this.newTreatmentByPatient.treatmentId]" >View Sessions</button>
+          <button mat-raised-button class="card-button" color="primary" [routerLink]="['/video-sessions', this.treatmentId]" >View Sessions</button>
         </ng-template>
       </div>
 

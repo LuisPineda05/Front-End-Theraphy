@@ -15,21 +15,41 @@ export class ReviewsComponent implements OnInit {
 
   reviews$: Review[]=[]
   physiotherapist$: Observable<Physiotherapist> | undefined
+  physiotherapist: Physiotherapist
+  currentRating: number = 0;
 
-
-  constructor(private route: ActivatedRoute, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService) { }
+  constructor(private route: ActivatedRoute, private reviewsService: ReviewsService, private physiotherapistsService: PhysiotherapistsService) {
+    this.physiotherapist = {} as Physiotherapist;
+  }
 
   ngOnInit(): void {
     this.route.params.pipe( take(1)).subscribe((params) => {
       const id = params['id'];
 
       this.physiotherapist$ = this.physiotherapistsService.getById(id);
+      this.physiotherapistsService.getById(id).subscribe((response:any)=>{
+        this.physiotherapist=response;
+      });
+      this.reviewsService.getItemByExternalId("reviews", id,"physiotherapists").subscribe((response:any)=>{
+        this.reviews$=response.content;
 
-      this.reviewsService.getItemByField("physiotherapistId", id).subscribe((response:any)=>{
-        this.reviews$=response;
+        for(let i = 0;  i < this.reviews$.length; i++) {
+          this.currentRating += this.reviews$[i].stars
+        }
+        this.currentRating /= this.reviews$.length;
+
+        this.physiotherapist.rating=this.currentRating;
+
+        this.physiotherapistsService.update(this.physiotherapist.id,this.physiotherapist).subscribe();
+        console.log(this.physiotherapist);
      });
 
     });
+
+
+
+
+
   }
 
 }

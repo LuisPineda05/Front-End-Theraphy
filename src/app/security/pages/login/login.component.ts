@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   submitForm(){
     this.usersService.getAll1().subscribe(response=>{
-      const user = response.find((a: any)=> {
+      const user = response.content.find((a: any)=> {
         this.currentUser = a;
         return a.email === this.loginForm.value.email &&
           a.password === this.loginForm.value.password
@@ -60,15 +60,16 @@ export class LoginComponent implements OnInit {
 
         this.loginForm.reset();
         if(this.currentUser.type == "patient") {
-          this.patientsService.getItemByField("userId", this.currentUser.id).subscribe((response:any)=>{
-            sessionStorage.setItem("typeId", response[0].id.toString());
+
+          this.patientsService.getItemByField("userId", Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
+            sessionStorage.setItem("typeId", response.id.toString());
           });
 
           this.router.navigate(['home-patient'])
         }else {
-          this.physiotherapistsService.getItemByField("userId", this.currentUser.id).subscribe((response: any) => {
+          this.physiotherapistsService.getItemByField("userId", Number(sessionStorage.getItem("userId"))).subscribe((response: any) => {
 
-            sessionStorage.setItem("typeId", response[0].id.toString());
+            sessionStorage.setItem("typeId", response.id.toString());
           });
 
           this.router.navigate(['home-doctor'])

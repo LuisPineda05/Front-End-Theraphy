@@ -8,5 +8,5 @@ export interface Patient {
   email: string;
   appointmentQuantity: number,
   photoUrl: string,
-  createdAt: string,
+  //createdAt: string,
 }

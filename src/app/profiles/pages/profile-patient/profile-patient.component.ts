@@ -19,7 +19,7 @@ export class ProfilePatientComponent implements OnInit {
 
   ngOnInit(): void {
    this.patientsService.getItemByField("userId",this.currentUser).subscribe((response:any)=>{
-     this.patients=response;
+     this.patients.push(response);
    });
   }
 

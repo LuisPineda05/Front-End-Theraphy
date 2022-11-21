@@ -3,7 +3,8 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 
 export class BaseService<T> {
   // Resource Endpoint
-  basePath = 'https://theraphy-fake-api.herokuapp.com';
+  //basePath = 'https://theraphy-fake-api.herokuapp.com';
+  basePath='http://localhost:8080/api/v1'
 
 
   // Common options
@@ -69,12 +70,22 @@ export class BaseService<T> {
 
   getItemByField(field: any, value: any): Observable<T>{
     return this.http.get<T>(
-      `${this.basePath}?${field}=${value}`,
+      `${this.basePath}/${field}=${value}`,
       this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
+
+  getItemByExternalId(field: any, value: any, external: any): Observable<T>{
+    return this.http.get<T>(
+      `http://localhost:8080/api/v1/${external}/${value}/${field}`,
+      this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
 
   getAll1(): Observable<any> {
     return this.http.get(this.basePath,this.httpOptions).pipe(retry(2), catchError(this.handleError));
