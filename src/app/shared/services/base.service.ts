@@ -79,7 +79,7 @@ export class BaseService<T> {
 
   getItemByExternalId(field: any, value: any, external: any): Observable<T>{
     return this.http.get<T>(
-      `http://localhost:8080/api/v1/${external}/${value}/${field}`,
+      `https://springboot-app-theraphy-heroku.herokuapp.com/api/v1/${external}/${value}/${field}`,
       this.httpOptions)
       .pipe(
         retry(2),
