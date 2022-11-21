@@ -23,7 +23,7 @@ export class HomePatientComponent implements OnInit {
 
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
               private myTreatmentsService: TreatmentsByPatientService, private appointmentsService: AppointmentsService) {
-    this.currentUser = Number(sessionStorage.getItem("userId"));
+    this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
 
@@ -36,25 +36,25 @@ export class HomePatientComponent implements OnInit {
 
   getAllAppointments(){
     this.appointmentsService.getAll().subscribe((response: any) => {
-      this.appointments = response;
+      this.appointments = response.content;
     })
   }
 
   getAllPhysiotherapists(){
     this.physiotherapistsService.getAll().subscribe((response: any) =>{
-      this.physiotherapists = response;
+      this.physiotherapists = response.content;
     })
   }
 
   getAllTreatments(){
     this.treatmentsService.getAll().subscribe((response:any)=>{
-      this.treatments = response;
+      this.treatments = response.content;
     })
   }
 
   getAllMyTreatments(){
     this.myTreatmentsService.getAll().subscribe((response: any)=>{
-      this.myTreatments = response;
+      this.myTreatments = response.content;
     })
   }
 }

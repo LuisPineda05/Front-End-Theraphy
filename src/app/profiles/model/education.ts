@@ -1,7 +1,7 @@
 export interface Education {
   id:number;
-  physiotherapist_id:number;
-  physiotherapist_name: string;
+  physiotherapistId:number;
+  physiotherapistName: string;
   specialization: string;
   universities: string[];
   degrees: string[]

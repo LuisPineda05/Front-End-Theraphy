@@ -29,16 +29,16 @@ export class SignupComponent implements OnInit {
   ]
 
 
-  @ViewChild('signupForm', {static: false})
+  @ViewChild('signupForm', {static: true})
   signupForm!: NgForm;
 
   registerForm: FormGroup = this.formBuilder.group({
-    first_name: ['', {validators: [Validators.required], updatedOn: 'change'}],
-    paternal_surname: ['', {validators: [Validators.required], updatedOn: 'change'}],
-    maternal_surname: ['', {validators: [Validators.required], updatedOn: 'change'}],
+    firstName: ['', {validators: [Validators.required], updatedOn: 'change'}],
+    paternalSurname: ['', {validators: [Validators.required], updatedOn: 'change'}],
+    maternalSurname: ['', {validators: [Validators.required], updatedOn: 'change'}],
     password: ['', {validators: [Validators.required], updatedOn: 'change'}],
     email: ['', {validators: [Validators.required], updatedOn: 'change'}],
-    birthday: ['', {validators: [Validators.required], updatedOn: 'change'}],
+    birthdayDate: ['', {validators: [Validators.required], updatedOn: 'change'}],
     type: ['', {validators: [Validators.required], updatedOn: 'change'}],
   })
 
@@ -52,21 +52,21 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getAll().subscribe((response: any) =>{
-      this.users=response;
+      this.users=response.content;
       console.log(this.users.length)
     })
   }
 
   get first_name() {
-    return this.registerForm.get('first_name');
+    return this.registerForm.get('firstName');
   }
 
   get paternal_surname() {
-    return this.registerForm.get('paternal_surname');
+    return this.registerForm.get('paternalSurname');
   }
 
   get maternal_surname() {
-    return this.registerForm.get('maternal_surname');
+    return this.registerForm.get('maternalSurname');
   }
 
   get password() {
@@ -78,7 +78,7 @@ export class SignupComponent implements OnInit {
   }
 
   get birthday () {
-    return this.registerForm.get('birthday');
+    return this.registerForm.get('birthdayDate');
   }
 
   get type() {
@@ -99,36 +99,36 @@ export class SignupComponent implements OnInit {
 
         this.newPatient.id=0;
 
-        this.newPatient.user_id=Number(this.users.length+1);
+        this.newPatient.userId=Number(this.users.length+1);
 
-        this.newPatient.first_name=this.userData.first_name;
-        this.newPatient.last_name=this.userData.paternal_surname+" "+this.userData.maternal_surname;
+        this.newPatient.firstName=this.userData.firstName;
+        this.newPatient.lastName=this.userData.paternalSurname+" "+this.userData.maternalSurname;
 
 
-        this.newPatient.age=Number(new Date().getFullYear())-Number(this.userData.birthday.split('/')[2]);
-        this.newPatient.birthday=this.userData.birthday;
+        this.newPatient.age=Number(new Date().getFullYear())-Number(this.userData.birthdayDate.split('/')[2]);
+        this.newPatient.birthdayDate=this.userData.birthdayDate;
         this.newPatient.email=this.userData.email;
-        this.newPatient.appointment_quantity=0;
-        this.newPatient.photo="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
-        this.newPatient.created_at=new Date().toLocaleDateString();
+        this.newPatient.appointmentQuantity=0;
+        this.newPatient.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        //this.newPatient.createdAt=new Date().toLocaleDateString();
 
         this.patientsService.create(this.newPatient).subscribe();
       }else{
         this.newPhysiotherapist.id=0;
 
-        this.newPhysiotherapist.user_id=Number(this.users.length+1);
+        this.newPhysiotherapist.userId=Number(this.users.length+1);
 
-        this.newPhysiotherapist.first_name=this.userData.first_name;
-        this.newPhysiotherapist.paternal_surname=this.userData.paternal_surname
-        this.newPhysiotherapist.maternal_surname=this.userData.maternal_surname;
-        this.newPhysiotherapist.specialization="";
-        this.newPhysiotherapist.age=Number(new Date().getFullYear())-Number(this.userData.birthday.split('/')[2]);
-        this.newPhysiotherapist.location="";
-        this.newPhysiotherapist.birthdate=this.userData.birthday;
+        this.newPhysiotherapist.firstName=this.userData.firstName;
+        this.newPhysiotherapist.paternalSurname=this.userData.paternalSurname
+        this.newPhysiotherapist.maternalSurname=this.userData.maternalSurname;
+        this.newPhysiotherapist.specialization="physiotherapist";
+        this.newPhysiotherapist.age=Number(new Date().getFullYear())-Number(this.userData.birthdayDate.split('/')[2]);
+        this.newPhysiotherapist.location="Lima";
+        this.newPhysiotherapist.birthdayDate=this.userData.birthdayDate;
         this.newPhysiotherapist.email=this.userData.email;
         this.newPhysiotherapist.rating=0;
-        this.newPhysiotherapist.consultations_quantity=0;
-        this.newPatient.photo="https://clinicamg.com/wp-content/uploads/2016/01/Jose.jpg";
+        this.newPhysiotherapist.consultationsQuantity=0;
+        this.newPhysiotherapist.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
         this.physiotherapistsService.create(this.newPhysiotherapist).subscribe();
       }

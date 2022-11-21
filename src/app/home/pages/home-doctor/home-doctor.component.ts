@@ -38,9 +38,9 @@ export class HomeDoctorComponent implements OnInit {
 
   getAllPhysiotherapists(){
     this.physiotherapistsService.getAll().subscribe((response: any) =>{
-      this.physiotherapists = response;
+      this.physiotherapists = response.content;
       for(let i = 0; i<this.physiotherapists.length;i++){
-        if(this.physiotherapists[i].user_id == this.currentUser) {
+        if(this.physiotherapists[i].userId == this.currentUser) {
           this.currentUser = this.physiotherapists[i].id;
         }
       }
@@ -49,7 +49,7 @@ export class HomeDoctorComponent implements OnInit {
 
   getAllTreatments(){
     this.treatmentsService.getAll().subscribe((response:any)=>{
-      this.treatments = response;
+      this.treatments = response.content;
     })
 
 
@@ -57,13 +57,13 @@ export class HomeDoctorComponent implements OnInit {
 
   getAllPatients(){
     this.patientsService.getAll().subscribe((response: any)=>{
-      this.patients=response;
+      this.patients=response.content;
     })
   }
 
   getAllAppointments() {
     this.appointmentsService.getAll().subscribe((response: any)=>{
-      this.appointments=response;
+      this.appointments=response.content;
       this.getMyPatients();
     })
 
@@ -71,9 +71,9 @@ export class HomeDoctorComponent implements OnInit {
 
   getMyPatients() {
     this.appointments.forEach(element => {
-      if(this.currentUser == element.physiotherapist_id) {
+      if(this.currentUser == element.physiotherapist.id) {
         this.patients.forEach(element2 => {
-          if(element2.id == element.patient_id) {
+          if(element2.id == element.patient.id) {
             this.myPatients.push(element2);
           }
         })

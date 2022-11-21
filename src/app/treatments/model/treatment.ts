@@ -1,9 +1,11 @@
+import {Physiotherapist} from "../../security/model/physiotherapist";
+
 export interface Treatment {
-  id:number;
-  title: string;
-  description: string;
-  sessions_quantity: number;
-  physiotherapist_id: number;
-  photo: string;
-  video_sessions: string[]
+  id:number,
+  title: string,
+  description: string,
+  sessionsQuantity: number;
+  physiotherapist: Physiotherapist,
+  photoUrl: string,
+  //videoSessions: string[]
 }

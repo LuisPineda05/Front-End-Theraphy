@@ -3,6 +3,7 @@ import {Treatment} from "../../model/treatment";
 import {TreatmentsService} from "../../services/treatments.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UsersService} from "../../../security/services/users.service";
+import {TreatmentsByPatient} from "../../model/treatments-by-patient";
 
 
 
@@ -27,6 +28,7 @@ export class TreatmentsComponent implements OnInit {
 
     this.usersService.getById(Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
      this.userType= String(response.type);
+
     })
 
 
@@ -35,18 +37,27 @@ export class TreatmentsComponent implements OnInit {
 
   getAllTreatments(){
     this.treatmentsService.getAll().subscribe((response:any)=>{
-      this.treatments = response;
+      this.treatments = response.content;
     })
   }
 
-  getTreatmentByQuery(title: string){
-    if(title?.length) {
-      this.treatmentsService.getItemByField('title',title).subscribe((response: any)=> {
-          this.treatments = response;
-        }
-      )}else{
+  getTreatmentByQuery(name: string, treatmentsFiltered: Treatment[] = [], found: boolean = false) {
+
+    for(let i = 0; i < this.treatments.length; i++) {
+      if(this.treatments[i].title.includes(name)){
+        treatmentsFiltered.push(this.treatments[i]);
+        found = true;
+      }
+    }
+
+    if(found && name!="") {
+      this.treatments=  treatmentsFiltered;
+    } else{
       this.getAllTreatments();
     }
+
+
+
   }
 
 }

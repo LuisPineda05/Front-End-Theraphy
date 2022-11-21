@@ -18,11 +18,11 @@
 
       <div class="profile-body">
         <div class="profile-body_right">
-          <img src="https://info.marista.edu.mx/hubfs/blog%20img/Im%C3%A1genes%20Blog/universidad-marista-el-impacto-que-puede-tener-la-fisioterapia-y-rehabilitacion.jpg" alt="">
+          <img src="{{ physiotherapist.photoUrl}}" alt="{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname}}">
         </div>
         <div class="profile-body_left">
           <div class="profile-body-left_name">
-            <h1>{{ physiotherapist.first_name + ' ' + physiotherapist.paternal_surname}}</h1>
+            <h1>{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname}}</h1>
             <h3>Physiotherapist</h3>
           </div>
           <ul class="profile_body_left-information-top">
@@ -32,7 +32,7 @@
                   <h3>Patients</h3>
                 </li>
                 <li>
-                  <h2>{{ '+ ' + physiotherapist.consultations_quantity}}</h2>
+                  <h2>{{ '+ ' + physiotherapist.consultationsQuantity}}</h2>
                 </li>
               </div>
             </ul>
@@ -85,17 +85,12 @@
               <li>
                 <h3>Bachillerato en Medicina General en la UPC</h3>
               </li>
-              <li>
-                <button mat-raised-button class="div-button" color="primary">Download</button>
-              </li>
             </div>
             <div class="university">
               <li>
                 <h3>Especialización en Podología en la PUCP</h3>
               </li>
-              <li>
-                <button mat-raised-button class="div-button" color="primary">Download</button>
-              </li>
+
             </div>
 
           </ul>
