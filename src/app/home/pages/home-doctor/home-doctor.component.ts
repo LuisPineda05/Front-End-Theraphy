@@ -7,6 +7,8 @@ import {PatientsService} from "../../../security/services/patients.service";
 import {TreatmentsService} from "../../../treatments/services/treatments.service";
 import {Appointments} from "../../../appointments/model/appointments";
 import {AppointmentsService} from "../../../appointments/services/appointments.service";
+import {UsersService} from "../../../security/services/users.service";
+import {User} from "../../../security/model/user";
 
 @Component({
   selector: 'app-home-doctor',
@@ -24,7 +26,8 @@ export class HomeDoctorComponent implements OnInit {
   aea:number = 0;
 
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
-              private patientsService: PatientsService, private appointmentsService: AppointmentsService) {
+              private patientsService: PatientsService, private appointmentsService: AppointmentsService,
+              private userService: UsersService) {
     this.currentUser = Number(sessionStorage.getItem("userId"));
     //this.currentUser = 1;
   }
@@ -34,6 +37,14 @@ export class HomeDoctorComponent implements OnInit {
     this.getAllTreatments();
     this.getAllPatients();
     this.getAllAppointments();
+  }
+
+  getName(patient3: Patient): any {
+    this.userService.getById(patient3.userId).subscribe(
+      (response: any) => {
+        return response;
+      }
+    )
   }
 
   getAllPhysiotherapists(){
@@ -71,9 +82,9 @@ export class HomeDoctorComponent implements OnInit {
 
   getMyPatients() {
     this.appointments.forEach(element => {
-      if(this.currentUser == element.physiotherapist.id) {
+      if(this.currentUser == element.physiotherapistId) {
         this.patients.forEach(element2 => {
-          if(element2.id == element.patient.id) {
+          if(element2.id == element.patientId) {
             this.myPatients.push(element2);
           }
         })

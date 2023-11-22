@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
 
         this.loginForm.reset();
-        if(this.currentUser.type == "patient") {
+        if(true) {
 
           this.patientsService.getItemByField("userId", Number(sessionStorage.getItem("userId"))).subscribe((response:any)=>{
             sessionStorage.setItem("typeId", response.id.toString());

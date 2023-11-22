@@ -89,25 +89,19 @@ export class SignupComponent implements OnInit {
     this.newUser.id=0;
     this.newUser.email=this.registerForm.value.email;
     this.newUser.password=this.registerForm.value.password;
-    this.newUser.type=this.registerForm.value.type;
 
 
     this.usersService.create(this.newUser).subscribe(response=>{
 
 
-      if(this.newUser.type=="patient"){
+      if(true){
 
         this.newPatient.id=0;
 
         this.newPatient.userId=Number(this.users.length+1);
 
-        this.newPatient.firstName=this.userData.firstName;
-        this.newPatient.lastName=this.userData.paternalSurname+" "+this.userData.maternalSurname;
 
 
-        this.newPatient.age=Number(new Date().getFullYear())-Number(this.userData.birthdayDate.split('/')[2]);
-        this.newPatient.birthdayDate=this.userData.birthdayDate;
-        this.newPatient.email=this.userData.email;
         this.newPatient.appointmentQuantity=0;
         this.newPatient.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
         //this.newPatient.createdAt=new Date().toLocaleDateString();
@@ -118,18 +112,10 @@ export class SignupComponent implements OnInit {
 
         this.newPhysiotherapist.userId=Number(this.users.length+1);
 
-        this.newPhysiotherapist.firstName=this.userData.firstName;
-        this.newPhysiotherapist.paternalSurname=this.userData.paternalSurname
-        this.newPhysiotherapist.maternalSurname=this.userData.maternalSurname;
         this.newPhysiotherapist.specialization="physiotherapist";
-        this.newPhysiotherapist.age=Number(new Date().getFullYear())-Number(this.userData.birthdayDate.split('/')[2]);
         this.newPhysiotherapist.location="Lima";
-        this.newPhysiotherapist.birthdayDate=this.userData.birthdayDate;
-        this.newPhysiotherapist.email=this.userData.email;
         this.newPhysiotherapist.rating=0;
-        this.newPhysiotherapist.consultationsQuantity=0;
         this.newPhysiotherapist.photoUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-
         this.physiotherapistsService.create(this.newPhysiotherapist).subscribe();
       }
 

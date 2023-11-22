@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {PhysiotherapistsService} from "../../../security/services/physiotherapists.service";
 import {Physiotherapist} from "../../../security/model/physiotherapist";
 import {Treatment} from "../../../treatments/model/treatment";
+import {UsersService} from "../../../security/services/users.service";
+import {User} from "../../../security/model/user";
 
 @Component({
   selector: 'app-physiotherapists',
@@ -11,8 +13,9 @@ import {Treatment} from "../../../treatments/model/treatment";
 export class PhysiotherapistsComponent implements OnInit {
 
   physiotherapists: Physiotherapist[]=[];
+  user: User[]=[];
 
-  constructor(private physiotherapistsService: PhysiotherapistsService) { }
+  constructor(private physiotherapistsService: PhysiotherapistsService, private userService: UsersService) { }
 
   ngOnInit(): void {
     this.getAllPhysiotherapists()
@@ -28,10 +31,17 @@ export class PhysiotherapistsComponent implements OnInit {
     getPhysiotherapistByQuery(name: string, physiotherapistsFiltered: Physiotherapist[] = [], found: boolean = false) {
 
     for(let i = 0; i < this.physiotherapists.length; i++) {
-      if(this.physiotherapists[i].firstName.includes(name) ||
-        this.physiotherapists[i].paternalSurname.includes(name)){
+      this.userService.getById(this.physiotherapists[i].userId).subscribe((response: any) =>
+        {
+          this.user.push(response.content);
+        }
+      );
+      if(this.user[0].firstname.includes(name) ||
+        this.user[0].lastname.includes(name)){
         physiotherapistsFiltered.push(this.physiotherapists[i]);
         found = true;
+      } else{
+        this.user = [];
       }
     }
 

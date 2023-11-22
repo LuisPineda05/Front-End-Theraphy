@@ -14,14 +14,14 @@
 
       <div class="profile-info">
         <div>
-          <img mat-card-md-image src="{{physiotherapist.photoUrl}}" alt="{{ physiotherapist.firstName }}">
+          <img mat-card-md-image src="{{physiotherapist.photoUrl}}">
         </div>
         <div class="profile-data">
-          <h1> {{physiotherapist.firstName}} {{physiotherapist.paternalSurname}} {{physiotherapist.maternalSurname}}</h1>
+          <h1> {{user[0].firstname}} {{user[0].lastname}}</h1>
           <div class="profile-data-list">
             <li>
               <mat-icon class="icon" >accessibility</mat-icon>
-              <h2>{{physiotherapist.consultationsQuantity}} appointments</h2>
+              <h2>{{physiotherapist.consultationQuantity}} appointments</h2>
             </li>
 
             <li>
@@ -31,7 +31,7 @@
 
             <li>
               <mat-icon class="icon" >email</mat-icon>
-              <h2>{{physiotherapist.email}}</h2>
+              <h2>{{user[0].email}}</h2>
             </li>
 
           </div>

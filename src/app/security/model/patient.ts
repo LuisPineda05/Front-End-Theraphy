@@ -1,12 +1,9 @@
 export interface Patient {
   id: number,
-  userId: number,
-  firstName: string,
-  lastName: string,
-  age: number,
-  birthdayDate: string,
-  email: string;
-  appointmentQuantity: number,
+  dni: string,
   photoUrl: string,
-  //createdAt: string,
+  birthday: string,
+  appointmentQuantity: number,
+  location: string,
+  userId: number
 }

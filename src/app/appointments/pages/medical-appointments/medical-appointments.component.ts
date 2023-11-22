@@ -9,6 +9,7 @@ import {Patient} from "../../../security/model/patient";
 import {PatientsService} from "../../../security/services/patients.service";
 import {ActivatedRoute} from "@angular/router";
 import {Treatment} from "../../../treatments/model/treatment";
+import {User} from "../../../security/model/user";
 
 @Component({
   selector: 'app-medical-appointments',
@@ -25,8 +26,12 @@ export class MedicalAppointmentsComponent implements OnInit {
   userType: String;
   types:String []=["patient", "physiotherapist"]
 
+  patient: Patient[] = [];
+  physiotherapist: Physiotherapist[] = [];
+  user: User[] = [];
 
-  constructor(private route:ActivatedRoute, private usersService: UsersService, private appointmentsService: AppointmentsService) {
+  constructor(private route:ActivatedRoute, private usersService: UsersService, private appointmentsService: AppointmentsService,
+              private patientService: PatientsService, private physiotherapistService: PhysiotherapistsService) {
     this.currentUser = Number(sessionStorage.getItem("typeId"));
     this.filter=true;
     this.userType="";
@@ -63,10 +68,29 @@ export class MedicalAppointmentsComponent implements OnInit {
   getAppointmentByPhysiotherapistName(name: string, appointmentsFiltered: Appointments[] = [], found: boolean = false) {
 
     for(let i = 0; i < this.appointments.length; i++) {
-      if(this.appointments[i].physiotherapist.firstName.includes(name)
-      || this.appointments[i].physiotherapist.paternalSurname.includes(name) ){
+
+      this.physiotherapistService.getById(this.appointments[i].physiotherapistId).subscribe(
+        (response: any) => {
+          this.physiotherapist.push(response);
+
+          this.usersService.getById(response.userId).subscribe(
+            (res: any) =>
+            {
+              this.user.push(res);
+            }
+          )
+
+        }
+      );
+
+
+      if(this.user[0].firstname.includes(name)
+      || this.user[0].lastname.includes(name) ){
         appointmentsFiltered.push(this.appointments[i]);
         found = true;
+      } else {
+        this.user = [];
+        this.physiotherapist = [];
       }
     }
 
@@ -85,11 +109,30 @@ export class MedicalAppointmentsComponent implements OnInit {
     getAppointmentByPatientName(name: string, appointmentsFiltered: Appointments[] = [], found: boolean = false) {
 
     for(let i = 0; i < this.appointments.length; i++) {
-      if(this.appointments[i].patient.firstName.includes(name) ||
-        this.appointments[i].patient.lastName.includes(name)
+      this.patientService.getById(this.appointments[i].patientId).subscribe(
+        (response: any) => {
+          this.patient.push(response);
+
+          this.usersService.getById(response.userId).subscribe(
+            (res: any) =>
+            {
+              this.user.push(res);
+            }
+          )
+
+        }
+      );
+
+
+
+      if(this.user[0].firstname.includes(name) ||
+        this.user[0].lastname.includes(name)
       ){
         appointmentsFiltered.push(this.appointments[i]);
         found = true;
+      } else {
+        this.patient = [];
+        this.user = [];
       }
     }
 

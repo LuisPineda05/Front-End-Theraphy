@@ -18,11 +18,11 @@
 
       <div class="profile-body">
         <div class="profile-body_right">
-          <img src="{{ physiotherapist.photoUrl}}" alt="{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname}}">
+          <img src="{{ physiotherapist.photoUrl}}">
         </div>
         <div class="profile-body_left">
           <div class="profile-body-left_name">
-            <h1>{{ physiotherapist.firstName + ' ' + physiotherapist.paternalSurname}}</h1>
+            <h1>{{ user[0].firstname + ' ' + user[0].lastname}}</h1>
             <h3>Physiotherapist</h3>
           </div>
           <ul class="profile_body_left-information-top">
@@ -32,7 +32,7 @@
                   <h3>Patients</h3>
                 </li>
                 <li>
-                  <h2>{{ '+ ' + physiotherapist.consultationsQuantity}}</h2>
+                  <h2>{{ '+ ' + physiotherapist.consultationQuantity}}</h2>
                 </li>
               </div>
             </ul>

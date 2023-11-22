@@ -41,10 +41,10 @@ export class ScheduleAppointmentsComponent implements OnInit {
       console.log(id)
 
       this.physiotherapistsService.getById(id).subscribe((response: any) =>{
-        this.appointmentData.physiotherapist=response;
+        this.appointmentData.physiotherapistId=response.id;
       })
       this.patientsService.getById(this.currentUser).subscribe((response: any) =>{
-        this.appointmentData.patient=response;
+        this.appointmentData.patientId=response.id;
       })
     })
 
@@ -54,8 +54,8 @@ export class ScheduleAppointmentsComponent implements OnInit {
     this.appointmentData.id = 0;
 
     const slicedate = new Date(this.date).toLocaleString();
-    this.appointmentData.scheduledDate = slicedate.split(',')[0];
-    this.appointmentData.done="false";
+    this.appointmentData.date = slicedate.split(',')[0];
+    this.appointmentData.done=false;
     this.appointmentData.diagnosis="Blank diagnosis";
 
     this.appointmentsService.create(this.appointmentData).subscribe((response:any) =>{})

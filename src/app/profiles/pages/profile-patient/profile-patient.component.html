@@ -14,10 +14,10 @@
 
       <div class="profile-info">
         <div>
-          <img mat-card-md-image src="{{patient.photoUrl}}" alt="{{ patient.firstName }}">
+          <img mat-card-md-image src="{{patient.photoUrl}}" >
         </div>
         <div class="profile-data">
-          <h1> {{patient.firstName}} {{patient.lastName}} </h1>
+          <h1> {{user[0].firstname}} {{user[0].lastname}} </h1>
           <div class="profile-data-list">
             <li>
               <mat-icon class="icon" >accessibility</mat-icon>
@@ -26,12 +26,12 @@
 
             <li>
               <mat-icon class="icon" >calendar_today</mat-icon>
-              <h2>{{patient.birthdayDate}}</h2>
+              <h2>{{patient.birthday}}</h2>
             </li>
 
             <li>
               <mat-icon class="icon" >email</mat-icon>
-              <h2>{{patient.email}}</h2>
+              <h2>{{user[0].email}}</h2>
             </li>
 
           </div>

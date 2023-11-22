@@ -53,7 +53,7 @@ export class DiagnosisComponent implements OnInit {
   }
 
   updateDiagnosis(){
-   this.appointmentData.done = "true";
+   this.appointmentData.done = true;
    this.appointmentsService.update(this.appointmentData.id, this.appointmentData)
       .subscribe((response:any) => {
       });

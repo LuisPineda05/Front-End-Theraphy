@@ -1,15 +1,15 @@
 export interface Physiotherapist {
   id: number,
-  userId:number,
-  firstName: string,
-  paternalSurname: string,
-  maternalSurname: string,
+  dni:string,
   specialization: string,
   age: number,
   location: string,
-  birthdayDate: string,
-  email: string,
+  photoUrl: string,
+  birthdayDate: number,
   rating: number,
-  consultationsQuantity: number,
-  photoUrl: string
+  consultationQuantity: number,
+  patientQuantity: number,
+  yearsExperience: number,
+  fees: number,
+  userId: number
 }

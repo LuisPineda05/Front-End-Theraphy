@@ -7,6 +7,7 @@ import {PhysiotherapistsService} from "../../../security/services/physiotherapis
 import {TreatmentsService} from "../../../treatments/services/treatments.service";
 import {TreatmentsByPatientService} from "../../../treatments/services/treatments-by-patient.service";
 import {AppointmentsService} from "../../../appointments/services/appointments.service";
+import {PatientsService} from "../../../security/services/patients.service";
 
 @Component({
   selector: 'app-home-patient',
@@ -22,7 +23,8 @@ export class HomePatientComponent implements OnInit {
   currentUser: number;
 
   constructor(private physiotherapistsService: PhysiotherapistsService, private treatmentsService: TreatmentsService,
-              private myTreatmentsService: TreatmentsByPatientService, private appointmentsService: AppointmentsService) {
+              private myTreatmentsService: TreatmentsByPatientService, private appointmentsService: AppointmentsService,
+              private patientService: PatientsService) {
     this.currentUser = Number(sessionStorage.getItem("typeId"));
 
   }
@@ -33,6 +35,7 @@ export class HomePatientComponent implements OnInit {
     this.getAllMyTreatments();
     this.getAllAppointments();
   }
+
 
   getAllAppointments(){
     this.appointmentsService.getAll().subscribe((response: any) => {

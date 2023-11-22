@@ -3,11 +3,12 @@ import {Patient} from "../../security/model/patient";
 
 export interface Appointments {
   id: number,
-  patient: Patient,
-  physiotherapist: Physiotherapist,
-  scheduledDate: string,
+  done: boolean,
   topic: string,
-  done: string,
   diagnosis: string,
-
+  date: string,
+  hour: string,
+  place: string,
+  patientId: number,
+  physiotherapistId: number
 }
